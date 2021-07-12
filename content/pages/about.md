@@ -1,12 +1,13 @@
 ---
-title: "About me"
-template: "page"
-socialImage: "/photo.jpg"
+template: page
+title: About me
+slug: about-me
+socialImage: /photo.jpg
+draft: false
 ---
 
 ![A picture of me.](/photo.jpg)
-*Here is a picture of me.*
 
-My name is Baker Moran
+My name is Baker Moran, and currently I'm a software engineer at [Root Insurance](joinroot.com). The purpose of this blog is going to be mostly self-indulgent because I don't get to do much writing anymore. If anyone else finds it interesting, or it helps me connect with people, I'll consider that an unexpected yet welcome outcome.
 
-Here is some description of me.
+If you want to talk about software engineering, statistics, reading, writing, music, coffee, or just about anything, don't hesitate to reach out!
