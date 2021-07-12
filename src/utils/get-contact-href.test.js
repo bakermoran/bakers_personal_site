@@ -2,13 +2,13 @@
 import getContactHref from './get-contact-href';
 
 test('getContactHref', () => {
-  expect(getContactHref('twitter', '#')).toBe('https://www.twitter.com/#');
-  expect(getContactHref('github', '#')).toBe('https://github.com/#');
-  expect(getContactHref('email', '#')).toBe('mailto:#');
+  expect(getContactHref('twitter', '#')).toBe('https://www.twitter.com/bakermoran');
+  expect(getContactHref('github', '#')).toBe('https://github.com/bakermoran');
+  expect(getContactHref('email', '#')).toBe('mailto:baker.moran@gmail.com');
   expect(getContactHref('vkontakte', '#')).toBe('https://vk.com/#');
   expect(getContactHref('telegram', '#')).toBe('https://t.me/#');
   expect(getContactHref('rss', '#')).toBe('#');
-  expect(getContactHref('linkedin', '#')).toBe('https://www.linkedin.com/in/#');
+  expect(getContactHref('linkedin', '#')).toBe('https://www.linkedin.com/in/baker-moran-a47b17114/');
   expect(getContactHref('instagram', '#')).toBe('https://www.instagram.com/#');
   expect(getContactHref('line', '#')).toBe('line://ti/p/#');
   expect(getContactHref('facebook', '#')).toBe('https://www.facebook.com/#');
