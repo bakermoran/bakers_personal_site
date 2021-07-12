@@ -1,9 +1,7 @@
 ---
-template: page
-title: About me
-slug: about-me
-socialImage: /photo.jpg
-draft: false
+title: "About me"
+template: "page"
+socialImage: "/photo.jpg"
 ---
 
 ![A picture of me.](/photo.jpg)
