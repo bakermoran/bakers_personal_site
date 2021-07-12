@@ -1,14 +1,13 @@
 'use strict';
 
 module.exports = {
-  url: 'https://lumen.netlify.com',
+  url: 'https://bakermoran.co/',
   pathPrefix: '/',
   title: 'Blog by Baker Moran',
-  subtitle: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+  subtitle: 'A personal site and blog by Baker Moran',
   copyright: '© All rights reserved.',
   disqusShortname: '',
-  postsPerPage: 4,
-  googleAnalyticsId: 'UA-73379983-2',
+  postsPerPage: 10,
   useKatex: false,
   menu: [
     {
@@ -29,14 +28,14 @@ module.exports = {
     photo: '/photo.jpg',
     bio: 'Software Engineer.',
     contacts: {
-      email: 'bamoran99@gmail.com',
+      email: 'baker.moran@gmail.com',
       facebook: '',
       telegram: '',
-      twitter: 'https://twitter.com/bakermoran',
-      github: 'https://github.com/bakermoran',
+      twitter: 'bakermoran',
+      github: 'bakermoran',
       rss: '',
       vkontakte: '',
-      linkedin: 'https://www.linkedin.com/in/baker-moran-a47b17114/',
+      linkedin: 'baker-moran-a47b17114/',
       instagram: '',
       line: '',
       gitlab: '',
