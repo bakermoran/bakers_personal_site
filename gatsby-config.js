@@ -15,6 +15,7 @@ module.exports = {
     author: siteConfig.author
   },
   plugins: [
+    `gatsby-plugin-netlify-cms-paths`,
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -103,6 +104,7 @@ module.exports = {
       options: {
         plugins: [
           'gatsby-remark-relative-images',
+          `gatsby-plugin-netlify-cms-paths`,
           {
             resolve: 'gatsby-remark-katex',
             options: {

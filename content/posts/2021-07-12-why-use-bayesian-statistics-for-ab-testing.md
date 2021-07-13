@@ -12,8 +12,6 @@ tags:
   - Bayes
   - Statistics
 ---
-# Bayesian Statistics
-
 There are plenty of articles out there motivating why we should use Bayesian statistics in product analytics. I'm not going to try to reinvent the wheel here, so I will provide only a brief explaination and link to some articles that I found helpful in my learning. I will also explain why I created this package.
 
 ## Motivation
