@@ -5,11 +5,13 @@ slug: about-this-blog
 socialImage: /media/badlands-img-1.jpg
 draft: false
 date: 2021-07-19T15:41:47.827Z
-description: A manifesto for the purpose of this blog
+description: Why am I starting a blog?
 category: About
 tags:
   - About
 ---
+![Badlands national park](/media/badlands-img-1.jpg)
+
 I've long avoided creating a personal website, let alone a blog. I think I always viewed it as unnecessary for myself, and that I didn't have anything important to say. But I've since realized that I enjoy talking about things I find interesting, and it's ok if I write it down no one even reads it. The act of writing helps to evolve my ideas and helps me learn.
 
 ## So why blog?
