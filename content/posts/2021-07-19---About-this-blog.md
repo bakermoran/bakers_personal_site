@@ -5,7 +5,7 @@ slug: about-this-blog
 socialImage: /media/badlands-img-1.jpg
 draft: false
 date: 2021-07-19T15:41:47.827Z
-description: Why am I starting a blog?
+description: Why am I writing a blog?
 category: About
 tags:
   - About
