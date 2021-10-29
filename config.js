@@ -6,6 +6,7 @@ module.exports = {
   title: 'Blog by Baker Moran',
   subtitle: 'A personal site and blog by Baker Moran',
   copyright: '© All rights reserved.',
+  googleAnalyticsId: 'G-2MXZ2HPW1T',
   disqusShortname: '',
   postsPerPage: 10,
   useKatex: false,

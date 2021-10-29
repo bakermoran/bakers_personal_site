@@ -145,7 +145,17 @@ module.exports = {
         trackingIds: [siteConfig.googleAnalyticsId],
         pluginConfig: {
           head: true
-        }
+        },
+        gtagConfig: {
+          optimize_id: "OPT_CONTAINER_ID",
+          anonymize_ip: true,
+          cookie_expires: 0,
+        },
+        pluginConfig: {
+          head: false,
+          respectDNT: true,
+          exclude: ["/preview/**", "/do-not-track/me/too/"],
+        },
       }
     },
     {
