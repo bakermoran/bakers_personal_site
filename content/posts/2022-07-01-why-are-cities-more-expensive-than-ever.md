@@ -14,6 +14,10 @@ tags:
   - development
   - transportation
 ---
+![A picture of San Francisco from Hawk Hill in Marin County](/media/img_0684.jpg "San Francisco")
+
+
+
 In the midst of covid, many predicted the “death of in person work”. To a large extent, this has been true - many companies have chosen not to go back to the office and have instead started hiring workers from all over the country. Why then do we see rents in places like New York City and San Francisco skyrocketing to higher than pre-pandemic levels?
 
 While it's true that rents initially dropped at the beginning of covid as people moved out of cities amidst the uncertainty, they have stormed back in numbers even greater than before as they come to terms with what moving away was like. When everyone is able to work from home, why would someone *choose* to live in a 500 square foot, $3,000 a month apartment in Brooklyn when they could live in a house more than double the size and less than half the cost in a midwestern suburb?
