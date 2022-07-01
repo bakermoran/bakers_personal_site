@@ -1,9 +1,9 @@
 ---
 template: post
-title: Why are cities more expensive than ever?
-slug: why-are-cities-more-expensive-than-ever
+title: Cities are more expensive than ever
+slug: cities-are-more-expensive-than-ever
 socialImage: /media/img_0684.jpg
-draft: true
+draft: false
 date: 2022-07-01T01:45:28.791Z
 description: In the remote work era, rents in cities and housing prices in
   medium density neighborhoods are higher than ever. Why are people moving back
