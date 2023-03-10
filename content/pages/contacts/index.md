@@ -1,7 +1,6 @@
 ---
 title: "Contact me"
 template: "page"
-socialImage: "./book.jpg"
 ---
 
 The best ways to get in touch are through
