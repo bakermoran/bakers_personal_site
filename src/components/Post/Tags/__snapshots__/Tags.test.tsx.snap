@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tags renders correctly 1`] = `
+<div>
+  <ul>
+    <li>
+      <a
+        className=""
+        href="/urbanism"
+      >
+        Urbanism
+      </a>
+    </li>
+    <li>
+      <a
+        className=""
+        href="/development"
+      >
+        Development
+      </a>
+    </li>
+    <li>
+      <a
+        className=""
+        href="/transportation"
+      >
+        Transportation
+      </a>
+    </li>
+  </ul>
+</div>
+`;

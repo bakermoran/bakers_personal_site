@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostTemplate renders correctly 1`] = `
+<div>
+  <div>
+    <div>
+      <a
+        className=""
+        href="/"
+      >
+        All Articles
+      </a>
+    </div>
+    <div>
+      <div>
+        <h1>
+          Cities are more expensive than ever
+        </h1>
+        <div
+          dangerouslySetInnerHTML={
+            {
+              "__html": "<p>Lorem Ipsum.</p>",
+            }
+          }
+        />
+      </div>
+    </div>
+    <div>
+      <div>
+        <p>
+          Published
+           
+          Aug 31, 2016
+        </p>
+      </div>
+      <div>
+        <p>
+          Software Engineer.
+          <a
+            href="https://www.twitter.com/bakermoran"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <strong>
+              Baker Moran
+            </strong>
+             on Twitter
+          </a>
+        </p>
+      </div>
+    </div>
+    <div />
+  </div>
+</div>
+`;

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page renders correctly 1`] = `
+<div>
+  <div>
+    <h1>
+      Cities are more expensive than ever
+    </h1>
+    <div>
+      &lt;p&gt;Lorem Ipsum.&lt;/p&gt;
+    </div>
+  </div>
+</div>
+`;
