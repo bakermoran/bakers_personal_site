@@ -1,0 +1,14 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+interface Props {
+  error: unknown;
+}
+
+const { error } = Astro.props;
+---
+
+<Layout title="Accueil">
+  <h1 class="text-zinc-400">Quelque chose s'est mal passé.</h1>
+  <div>{error instanceof Error ? error.message : "Erreur inconnue"}</div>
+</Layout>

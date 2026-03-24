@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "jsx": "react",
+    "jsx": "react-jsx",
+    "extends": "astro/tsconfigs/strict",
     "target": "es2019",
     "module": "commonjs",
     "lib": ["esnext", "dom"],
@@ -29,8 +29,9 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "jsxImportSource": "react"
   },
-  "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx"]
+  "exclude": ["node_modules", "dist"],
+  "include": [".astro/types.d.ts", "**/*", "**/*.ts", "**/*.tsx"]
 }
