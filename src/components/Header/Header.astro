@@ -1,0 +1,80 @@
+---
+import ThemeButton from './ThemeButton.astro';
+import Link from '@/components/ui/Link.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import LocaleSwitcher from './LocaleSwitcher/LocaleSwitcher.astro';
+
+const navigation = [
+  { name: "Posts", href: "/posts" },
+  { name: "About", href: "/about" },
+  { name: "Projects", href: "/projects" },
+]
+
+const languages = [
+  { code: "en", name: "English" },
+  { code: "fr", name: "Français" }
+]
+
+const currentPath = Astro.url.pathname
+const currentLocale = Astro.currentLocale ?? 'en';
+const pathWithoutLocale = currentPath.replace(/^\/(en|es|fr)/, '') || '/';
+
+const localizedLinks = languages.map((lang) => ({
+  ...lang,
+  href: getRelativeLocaleUrl(lang.code, pathWithoutLocale),
+}));
+---
+
+<header class="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
+  <div class="mx-auto flex h-16 max-w-4xl items-center justify-between px-6">
+
+    <!-- Logo / Name -->
+    <Link href="/">
+      <div class="flex items-center gap-0.5">
+        <div class="h-4 w-4 bg-red-500"></div>
+        <div class="h-4 w-4 bg-blue-500"></div>
+        <div class="h-4 w-4 bg-yellow-500"></div>
+      </div>
+      <span class="text-lg font-medium tracking-tight text-foreground">Baker Moran</span>
+    </Link>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden items-center gap-8 md:flex" aria-label="Main navigation">
+      {navigation.map((item) => (
+        <Link
+          href={item.href}
+        >
+          {item.name}
+        </Link>
+      ))}
+    </nav>
+
+    <!-- Right side controls -->
+    <div class="flex items-center gap-2">
+
+      <LocaleSwitcher currentLocale={currentLocale} localizedLinks={localizedLinks} />
+      <ThemeButton />
+
+      <!-- Mobile Navigation Dropdown -->
+      <details class="dropdown relative md:hidden">
+        <summary class="flex cursor-pointer list-none items-center rounded-md px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground">
+          Menu
+        </summary>
+        <ul class="dropdown-menu absolute right-0 top-full z-50 mt-1 w-36 rounded-md border border-border bg-background py-1 shadow-md">
+          {navigation.map((item) => (
+            <li>
+                <a
+                  href={getRelativeLocaleUrl(currentLocale, item.href)}
+                  aria-current={currentPath.startsWith(item.href) ? "page" : undefined}
+                  class="block px-3 py-1.5 text-sm text-foreground transition-colors hover:bg-accent aria-[current=page]:font-medium"
+                >
+                  {item.name}
+                </a>
+            </li>
+          ))}
+        </ul>
+      </details>
+
+    </div>
+  </div>
+</header>

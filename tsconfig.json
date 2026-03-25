@@ -1,21 +1,14 @@
 {
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "jsx": "react-jsx",
-    "extends": "astro/tsconfigs/strict",
     "target": "es2019",
-    "module": "commonjs",
+    "module": "esnext",
     "lib": ["esnext", "dom"],
     "moduleResolution": "node",
+    "baseUrl": ".",
     "paths": {
-      "@/utils": ["./src/utils"],
-      "@/types": ["./src/types"],
-      "@/hooks": ["./src/hooks"],
-      "@/utils/*": ["./src/utils/*"],
-      "@/internal/*": ["./internal/*"],
-      "@/constants": ["./src/constants"],
-      "@/components": ["./src/components"],
-      "@/components/*": ["./src/components/*"],
-      "@/mocks": ["./internal/testing/__mocks__"]
+      "@/*": ["./src/*"]
     },
     "noEmit": true,
     "strict": true,

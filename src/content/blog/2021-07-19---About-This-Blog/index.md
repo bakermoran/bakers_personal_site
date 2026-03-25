@@ -3,10 +3,9 @@ title: "About this blog"
 date: "2021-07-19T15:41:47.827Z"
 template: "post"
 draft: false
-slug: "/posts/about-this-blog"
+id: "about-this-blog"
 category: "About"
-tags:
-  - "About"
+tags: ["About"]
 description: "Why am I writing a blog?"
 socialImage: "./media/badlands-img-1.jpg"
 ---

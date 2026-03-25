@@ -1,6 +1,12 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '@/layouts/Layout.astro';
+
+const { Content, frontmatter } = await import('@/content/about.md');
 ---
-<Layout title="About">
-  <h1 class="text-red-300">Hello world</h1>
+
+<Layout title={frontmatter.title}>
+    <article>
+    <h1>{frontmatter.title}</h1>
+    <Content />
+    </article>
 </Layout>

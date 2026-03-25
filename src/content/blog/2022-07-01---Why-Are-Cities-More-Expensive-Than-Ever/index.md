@@ -3,7 +3,7 @@ title: "Cities are more expensive than ever"
 date: "2022-07-01T01:45:28.791Z"
 template: "post"
 draft: false
-slug: "/posts/cities-are-more-expensive-than-ever"
+id: "cities-are-more-expensive-than-ever"
 category: "Urbanism"
 tags:
   - "Urbanism"

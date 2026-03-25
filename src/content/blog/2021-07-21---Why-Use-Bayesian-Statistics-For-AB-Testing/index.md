@@ -3,7 +3,7 @@ title: Why use Bayesian Statistics for AB Testing
 date: "2021-07-21T19:48:04.537Z"
 template: "post"
 draft: false
-slug: "/posts/why-bayesian-statistics-ab-testing"
+id: "why-bayesian-statistics-ab-testing"
 category: "Statistics"
 tags:
   - "Statistics"

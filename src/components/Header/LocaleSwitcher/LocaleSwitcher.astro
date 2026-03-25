@@ -1,0 +1,16 @@
+---
+import LocaleSwitcherReact from "./LocaleSwitcher.tsx";
+
+interface Props {
+  currentLocale: string;
+  localizedLinks: { code: string; name: string; href: string }[];
+}
+
+const { currentLocale, localizedLinks } = Astro.props;
+---
+
+<LocaleSwitcherReact
+  client:load
+  currentLocale={currentLocale}
+  localizedLinks={localizedLinks}
+/>
