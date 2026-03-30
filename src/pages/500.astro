@@ -1,5 +1,5 @@
 ---
-import Layout from '@/layouts/Layout.astro';
+import Main from '@/layouts/Main.astro';
 
 interface Props {
   error: unknown;
@@ -8,7 +8,7 @@ interface Props {
 const { error } = Astro.props;
 ---
 
-<Layout title="Home">
+<Main title="Home">
   <h1 class="text-zinc-400">Something went wrong</h1>
   <div>{error instanceof Error ? error.message : "Unknown error"}</div>
-</Layout>
+</Main>

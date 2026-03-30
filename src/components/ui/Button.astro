@@ -9,7 +9,7 @@ interface Props extends HTMLAttributes<"button"> {
 const { variant = 'primary', size = 'md', ...attrs } = Astro.props;
 
 const styles = {
-  button: "relative rounded-md p-2 transition-colors",
+  button: "relative rounded-md p-2 transition-colors rounded-sm",
   variants: {
     primary: "text-muted-foreground hover:bg-accent hover:text-foreground",
     secondary: "text-foreground hover:bg-secondary hover:text-foreground",

@@ -1,0 +1,22 @@
+---
+interface Props {
+    color: 'red' | 'blue' | 'yellow';
+    size?: 'small' | 'medium' | 'large';
+}
+
+const colorMap = {
+    red: 'bg-mcm-red',
+    blue: 'bg-mcm-blue',
+    yellow: 'bg-mcm-yellow',
+};
+
+const sizeMap = {
+    small: 'h-3 w-3',
+    medium: 'h-4 w-4',
+    large: 'h-5 w-5',
+};
+
+const { color, size = 'medium' } = Astro.props;
+---
+
+<div class=`${sizeMap[size]} ${colorMap[color]}`></div>

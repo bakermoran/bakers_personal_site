@@ -1,6 +1,7 @@
 ---
 import '@/styles/global.css'
-import Header from '@/components/Header/Header.astro';
+import { Font } from "astro:assets";
+import Footer from '@/components/Footer.astro';
 
 interface Props {
   title: string;
@@ -15,11 +16,24 @@ const currentLocale = Astro.currentLocale ?? 'en';
     <title>{title} | Baker Moran</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <Font cssVariable="--font-noto-serif" />
   </head>
-  <body>
-    <Header />
-    <div class="max-w-4xl mx-auto px-6">
-    <slot />
-    </div>
+  <body class="flex flex-col min-h-screen h-full">
+    <main class="grow">
+      <slot />
+    </main>
+    <Footer />
   </body>
 </html>
+
+<script is:inline>
+  const saved = localStorage.getItem('theme');
+  const theme =
+    saved === 'dark' || saved === 'light'
+      ? saved
+      : window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light';
+
+  document.documentElement.classList.toggle('dark', theme === 'dark');
+</script>

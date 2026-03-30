@@ -1,7 +1,11 @@
 ---
 import PostsList from '@/components/PostsList.astro';
-import Layout from '@/layouts/Layout.astro';
+import { useTranslations } from '@/i18n/utils';
+import Main from '@/layouts/Main.astro';
+
+const currentLocale = Astro.currentLocale ?? 'en';
+const t = useTranslations(currentLocale);
 ---
-<Layout title="Home">
+<Main title={t("nav.home")}>
   <PostsList />
-</Layout>
+</Main>

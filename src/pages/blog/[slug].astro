@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { format } from 'date-fns';
 import Post from '@/layouts/Post.astro';
 
 export async function getStaticPaths() {
@@ -15,8 +16,9 @@ const { Content } = await render(post);
 ---
 
 <Post title={post.data.title}>
-    <article>
-    <h1>{post.data.title}</h1>
-    <Content />
+    <article class="flex flex-col gap-4 mt-4">
+      <h1 class="text-3xl">{post.data.title}</h1>
+      <time>{format(post.data.date, 'MMMM d, yyyy')}</time>
+      <Content />
     </article>
 </Post>
