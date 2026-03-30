@@ -17,6 +17,12 @@ const currentLocale = Astro.currentLocale ?? 'en';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <Font cssVariable="--font-noto-serif" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Baker Moran RSS Feed"
+      href={new URL("rss.xml", Astro.site)}
+    />
   </head>
   <body class="flex flex-col min-h-screen h-full">
     <main class="grow">

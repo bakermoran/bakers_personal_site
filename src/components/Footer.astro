@@ -9,5 +9,8 @@ import PageLinks from "./PageLinks.astro"
         <span>&copy; {new Date().getFullYear()} Baker Moran</span>
     </div>
 
-    <PageLinks class:list="gap-4" />
+    <div class="flex gap-4 items-center">
+        <PageLinks class:list="gap-4" />
+        <a href="rss.xml">RSS</a>
+    </div>
 </footer>
