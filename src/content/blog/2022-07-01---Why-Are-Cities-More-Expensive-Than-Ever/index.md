@@ -12,10 +12,10 @@ tags:
 description: "In the remote work era, rents in cities and housing prices in
   medium density neighborhoods are higher than ever. Why are people moving back
   and paying high rents to live in cities when they don't need to?"
-socialImage: "./media/sf-from-hawk-hill.jpg"
+socialImage: "media/sf-from-hawk-hill.jpg"
 ---
 
-![A picture of San Francisco from Hawk Hill in Marin County](/media/sf-from-hawk-hill.jpg "San Francisco")
+![A picture of San Francisco from Hawk Hill in Marin County](media/sf-from-hawk-hill.jpg "San Francisco")
 
 In the midst of covid, many predicted the “death of in person work”. To a large extent, this has been true - many companies have chosen not to go back to the office and have instead started hiring workers from all over the country. Why then do we see rents in places like New York City and San Francisco skyrocketing to higher than pre-pandemic levels?
 

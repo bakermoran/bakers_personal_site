@@ -12,10 +12,10 @@ tags:
   - "Cognitive"
   - "Bias"
 description: "How does the language you speak affect the way you perceive the world, and how can learning a new one unlock hidden learnings?"
-socialImage: "./media/hello-stock.jpg"
+socialImage: "media/hello-stock.jpg"
 ---
 
-![Bubble text of "hello" in various languages](/media/hello-stock.jpeg "Hello in various languages")
+![Bubble text of "hello" in various languages](media/hello-stock.jpeg "Hello in various languages")
 
 Learning a new language is something that I believe can offer you a unique and different perspective on the world and alter the way you think. It provides a framework to critically think about the way you comprehend and perceive the world around you. Learning a new language has altered my view of the world for the better, and it can do the same for you.
 

@@ -1,12 +1,14 @@
 ---
+import Hero from '@/components/Hero.astro';
 import Main from '@/layouts/Main.astro';
 
 const { Content, frontmatter } = await import('@/content/about.md');
 ---
 
 <Main title={frontmatter.title}>
+    <Hero />
     <article>
-    <h1>{frontmatter.title}</h1>
-    <Content />
+        <h1>{frontmatter.title}</h1>
+        <Content />
     </article>
 </Main>

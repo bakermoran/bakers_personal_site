@@ -6,7 +6,7 @@ const posts = await getCollection('blog', ({ data }) => !data.draft);
 const sorted = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<ul class="divide-y divide-border">
+<ul class="divide-y space-y-6">
   {sorted.map((post, idx) => (
     <li>
       <PostListItem post={post} index={idx}/>

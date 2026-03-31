@@ -1,9 +1,12 @@
 ---
+import { twMerge } from 'tailwind-merge';
+
 interface Props {
     size?: 'small' | 'medium' | 'large';
+    class?: string;
 }
 
-const { size = 'medium' } = Astro.props;
+const { size = 'medium', class: className } = Astro.props;
 
 const sizeClasses = {
     small: 'max-w-xl',
@@ -12,6 +15,6 @@ const sizeClasses = {
 };
 ---
 
-<div class={`mx-auto px-6 ${sizeClasses[size]}`}>
+<div class={twMerge(`mx-auto px-6 ${sizeClasses[size]}`, className)}>
     <slot />
 </div>

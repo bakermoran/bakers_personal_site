@@ -1,0 +1,23 @@
+---
+import { Image } from 'astro:assets';
+import profilePic from '../content/images/profile.png';
+import SocialLinks from './SocialLinks.astro';
+
+---
+
+<div class="flex items-center gap-8">
+    <Image
+        src={profilePic}
+        alt="Profile Picture"
+        width={200}
+        height={200}
+        class="rounded-full"
+    />
+    <div class="flex flex-col gap-4">
+        <div>
+            <h1 class="text-4xl font-bold mb-2">Hi, I'm Baker!</h1>
+            <p class="text-lg text-muted-foreground">Welcome to my personal blog where I share my thoughts on technology, programming, and more.</p>
+        </div>
+        <SocialLinks />
+    </div>
+</div>

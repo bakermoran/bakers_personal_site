@@ -19,7 +19,7 @@ const color = colors[index % colors.length];
 const { remarkPluginFrontmatter } = await render(post);
 ---
 
-<div class="flex flex-col gap-2 py-6">
+<div class="flex flex-col gap-2 mb-6">
     <div class="flex items-center gap-4 text-sm text-muted-foreground">
         <SquareIcons color={color} size="small" />
         <h3>{post.data.category}</h3>
