@@ -22,29 +22,18 @@ interface Props {
   </span>
 </Button>
 
-<script is:inline>
-  function applyTheme(theme) {
-    const root = document.documentElement;
-    root.classList.toggle('dark', theme === 'dark');
-  }
-
-  function getPreferredTheme() {
-    const saved = localStorage.getItem('theme');
-    if (saved === 'dark' || saved === 'light') return saved;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
+<script>
+  import { setTheme } from "@/scripts/setTheme";
 
   function initThemeToggle() {
-    applyTheme(getPreferredTheme());
-
     const btn = document.getElementById('theme-toggle');
     if (!btn || btn.dataset.themeBound === 'true') return;
 
     btn.dataset.themeBound = 'true';
     btn.addEventListener('click', () => {
       const nextTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
-      applyTheme(nextTheme);
       localStorage.setItem('theme', nextTheme);
+      setTheme();
     });
   }
 

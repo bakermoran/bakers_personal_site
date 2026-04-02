@@ -2,10 +2,10 @@
 import ThemeButton from './ThemeButton.astro';
 import Link from '@/components/ui/Link.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
-import LocaleSwitcher from './LocaleSwitcher/LocaleSwitcher.astro';
+import LocaleSwitcher from '@/components/islands/LocaleSwitcher';
 import Logo from '../Logo.astro';
 import PageLinks from '../PageLinks.astro';
-import MobileNav from './MobileNav/MobileNav.astro';
+import MobileNav from '@/components/islands/MobileNav';
 
 const languages = [
   { code: "en", name: "English" },
@@ -37,11 +37,15 @@ const localizedLinks = languages.map((lang) => ({
     <!-- Right side controls -->
     <div class="flex items-center gap-2">
 
-      <LocaleSwitcher currentLocale={currentLocale} localizedLinks={localizedLinks} />
+      <LocaleSwitcher
+        client:load
+        currentLocale={currentLocale}
+        localizedLinks={localizedLinks}
+      />
       <ThemeButton />
 
       <!-- Mobile Navigation Dropdown -->
-      <MobileNav />
+      <MobileNav client:load currentPath={currentPath} />
     </div>
   </div>
 </header>
