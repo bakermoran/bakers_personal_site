@@ -1,16 +1,17 @@
 ---
+import { getLangFromUrl } from '@/i18n/utils';
 import type { HTMLAttributes } from 'astro/types';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 
 interface Props extends HTMLAttributes<"link"> {}
 
 const currentPath = Astro.url.pathname
-const currentLocale = Astro.currentLocale ?? 'en';
+const currentLocale = getLangFromUrl(Astro.url);
 const { href, ...props } = Astro.props;
 ---
 
 <a
-    href={getRelativeLocaleUrl(currentLocale, href)} class="flex items-center gap-3 transition-opacity hover:opacity-70"
+    href={getRelativeLocaleUrl(currentLocale, href?.toString())} class="flex items-center gap-3 transition-opacity hover:opacity-70"
     aria-current={href && currentPath.startsWith(href.toString()) ? "page" : undefined}
     {...props}
 >

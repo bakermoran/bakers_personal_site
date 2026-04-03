@@ -3,7 +3,7 @@ import { experimental_AstroContainer as AstroContainer } from "astro/container";
 import { loadRenderers } from "astro:container";
 import { getContainerRenderer } from "@astrojs/react";
 import { describe, expect, it } from "vitest";
-import Header from "../../src/components/Header/Header.astro";
+import Header from "@/components/Header/Header.astro";
 
 const renderers = await loadRenderers([getContainerRenderer()]);
 

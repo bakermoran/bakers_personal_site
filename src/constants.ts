@@ -2,4 +2,4 @@ export const navigation = [
   { name: "nav.home", href: "/" },
   { name: "nav.posts", href: "/posts" },
   { name: "nav.about", href: "/about" },
-];
+] as const;

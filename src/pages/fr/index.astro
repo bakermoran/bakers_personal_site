@@ -1,9 +1,9 @@
 ---
 import PostsList from '@/components/PostsList.astro';
 import Main from '@/layouts/Main.astro';
-import { useTranslations } from '@/i18n/utils';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
-const currentLocale = Astro.currentLocale ?? 'fr';
+const currentLocale = getLangFromUrl(Astro.url);
 const t = useTranslations(currentLocale);
 ---
 <Main title={t("nav.home")}>

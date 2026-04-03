@@ -2,10 +2,10 @@
 import Divider from '@/components/Divider.astro';
 import Hero from '@/components/Hero.astro';
 import PostsList from '@/components/PostsList.astro';
-import { useTranslations } from '@/i18n/utils';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import Main from '@/layouts/Main.astro';
 
-const currentLocale = Astro.currentLocale ?? 'en';
+const currentLocale = getLangFromUrl(Astro.url);
 const t = useTranslations(currentLocale);
 ---
 <Main title={t("nav.home")} class="flex flex-col gap-12">

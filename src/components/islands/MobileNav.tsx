@@ -1,4 +1,3 @@
-import * as React from "react";
 import * as DropdownMenu from "./DropdownMenu";
 import { Bars3Icon } from "@heroicons/react/24/solid/esm/index";
 import { navigation } from "@/constants";

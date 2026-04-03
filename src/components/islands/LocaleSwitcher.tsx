@@ -1,4 +1,3 @@
-import * as React from "react";
 import * as DropdownMenu from "./DropdownMenu";
 import { ChevronDownIcon, GlobeAltIcon } from "@heroicons/react/24/outline";
 

@@ -5,6 +5,7 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 import SquareIcons from './SquareIcon.astro';
 import { ArrowRightIcon } from '@heroicons/react/24/outline'
 import { render } from 'astro:content';
+import { getLangFromUrl } from '@/i18n/utils';
 
 interface Props {
   index: number;
@@ -12,7 +13,7 @@ interface Props {
 }
 
 const { post, index } = Astro.props;
-const currentLocale = Astro.currentLocale ?? 'en';
+const currentLocale = getLangFromUrl(Astro.url);
 
 const colors = ['red', 'blue', 'yellow'] as const;
 const color = colors[index % colors.length];

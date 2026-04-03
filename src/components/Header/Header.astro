@@ -6,6 +6,7 @@ import LocaleSwitcher from '@/components/islands/LocaleSwitcher';
 import Logo from '../Logo.astro';
 import PageLinks from '../PageLinks.astro';
 import MobileNav from '@/components/islands/MobileNav';
+import { getLangFromUrl } from '@/i18n/utils';
 
 const languages = [
   { code: "en", name: "English" },
@@ -13,7 +14,7 @@ const languages = [
 ]
 
 const currentPath = Astro.url.pathname
-const currentLocale = Astro.currentLocale ?? 'en';
+const currentLocale = getLangFromUrl(Astro.url);
 const pathWithoutLocale = currentPath.replace(/^\/(en|fr)/, '') || '/';
 
 const localizedLinks = languages.map((lang) => ({
