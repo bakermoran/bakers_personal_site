@@ -2,7 +2,7 @@
 import { twMerge } from 'tailwind-merge';
 
 interface Props {
-    size?: 'small' | 'medium' | 'large';
+    size?: 'small' | 'medium' | 'large' | 'none';
     class?: string;
 }
 
@@ -12,9 +12,10 @@ const sizeClasses = {
     small: 'max-w-xl',
     medium: 'max-w-3xl',
     large: 'max-w-4xl',
+    none: '',
 };
 ---
 
-<div class={twMerge(`mx-auto px-6 ${sizeClasses[size]}`, className)}>
+<div class={twMerge(`mx-auto px-6 mt-12 ${sizeClasses[size]}`, className)}>
     <slot />
 </div>

@@ -8,7 +8,7 @@ import Main from '@/layouts/Main.astro';
 const currentLocale = Astro.currentLocale ?? 'en';
 const t = useTranslations(currentLocale);
 ---
-<Main title={t("nav.home")} class="flex flex-col gap-12 mt-12">
+<Main title={t("nav.home")} class="flex flex-col gap-12">
   <Hero />
   <Divider />
   <PostsList />

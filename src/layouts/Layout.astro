@@ -23,6 +23,17 @@ const currentLocale = Astro.currentLocale ?? 'en';
       title="Baker Moran RSS Feed"
       href={new URL("rss.xml", Astro.site)}
     />
+    <script is:inline>
+      (function() {
+        var saved = localStorage.getItem("theme");
+        var theme = saved === "dark" || saved === "light"
+          ? saved
+          : window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+        document.documentElement.classList.toggle("dark", theme === "dark");
+      })();
+    </script>
   </head>
   <body class="flex flex-col min-h-screen h-full">
     <main class="grow">
@@ -31,8 +42,3 @@ const currentLocale = Astro.currentLocale ?? 'en';
     <Footer />
   </body>
 </html>
-
-<script>
-  import { setTheme } from "@/scripts/setTheme";
-  setTheme();
-</script>

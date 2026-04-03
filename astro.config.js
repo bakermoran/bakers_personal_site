@@ -8,6 +8,11 @@ export default defineConfig({
   integrations: [react()],
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      watch: {
+        ignored: ["**/test/**", "**/*.test.*"],
+      },
+    },
   },
   markdown: {
     remarkPlugins: [remarkReadingTime],
