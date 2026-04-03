@@ -20,7 +20,7 @@
     "test": "vitest run",
     "lint": "oxlint",
     "format": "oxfmt && prettier --write \"src/**/*.astro\"",
-    "prepare": "git config core.hooksPath .githooks"
+    "prepare": "husky"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.2",
@@ -54,6 +54,7 @@
     "@types/node": "^24.0.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "husky": "^9.1.7",
     "jsdom": "^29.0.1",
     "oxfmt": "^0.41.0",
     "oxlint": "^0",
