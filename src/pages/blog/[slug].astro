@@ -19,7 +19,7 @@ const { Content, remarkPluginFrontmatter } = await render(post);
 <Post title={post.data.title}>
     <article class="flex flex-col gap-4 mt-4">
       <h1 class="text-3xl">{post.data.title}</h1>
-      <div>{remarkPluginFrontmatter.minutesRead}</div>
+      <div class="font-mono">{remarkPluginFrontmatter.minutesRead}</div>
       <time>{format(post.data.date, 'MMMM d, yyyy')}</time>
       <Prose>
         <Content />

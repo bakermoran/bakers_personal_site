@@ -8,6 +8,9 @@ export default defineConfig({
   integrations: [react()],
   vite: {
     plugins: [tailwindcss()],
+    optimizeDeps: {
+      include: ["astro/toolbar"],
+    },
     server: {
       watch: {
         ignored: ["**/test/**", "**/*.test.*"],
@@ -22,6 +25,11 @@ export default defineConfig({
       provider: fontProviders.fontsource(),
       name: "Noto Serif",
       cssVariable: "--font-noto-serif",
+    },
+    {
+      provider: fontProviders.fontsource(),
+      name: "Noto Sans Mono",
+      cssVariable: "--font-noto-sans-mono",
     },
   ],
   i18n: {

@@ -1,5 +1,6 @@
 ---
 import Main from '@/layouts/Main.astro';
+import Error from '@/components/Error.astro';
 
 interface Props {
   error: unknown;
@@ -9,6 +10,5 @@ const { error } = Astro.props;
 ---
 
 <Main title="Home">
-  <h1 class="text-zinc-400">Something went wrong</h1>
-  <div>{error instanceof Error ? error.message : "Unknown error"}</div>
+  <Error error={error} title="500 - Internal Server Error" description="An unexpected error occurred. Please try again later." />
 </Main>

@@ -15,7 +15,7 @@ description: "In the remote work era, rents in cities and housing prices in
 socialImage: "media/sf-from-hawk-hill.jpg"
 ---
 
-![A picture of San Francisco from Hawk Hill in Marin County](media/sf-from-hawk-hill.jpg "San Francisco")
+![San Francisco from Hawk Hill in Marin County](media/sf-from-hawk-hill.jpg "San Francisco")
 
 In the midst of covid, many predicted the “death of in person work”. To a large extent, this has been true - many companies have chosen not to go back to the office and have instead started hiring workers from all over the country. Why then do we see rents in places like New York City and San Francisco skyrocketing to higher than pre-pandemic levels?
 
