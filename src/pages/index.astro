@@ -1,6 +1,7 @@
 ---
 import Divider from '@/components/Divider.astro';
 import Hero from '@/components/Hero.astro';
+import { ArrowRightIcon } from '@heroicons/react/24/outline'
 import PostsList from '@/components/PostsList.astro';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import Main from '@/layouts/Main.astro';
@@ -11,5 +12,14 @@ const t = useTranslations(currentLocale);
 <Main title={t("nav.home")} class="flex flex-col gap-12">
   <Hero />
   <Divider />
-  <PostsList />
+  <div class ="flex flex-col gap-6">
+  <div class="inline-flex items-baseline">
+    <div class="text-xl">Recent posts</div>
+    <a href="/posts" class="link text-xs ml-auto flex gap-2 text-muted-foreground">
+      <span>Read more</span>
+      <ArrowRightIcon className="w-4 h-4" />
+    </a>
+  </div>
+    <PostsList limit={3}/>
+  </div>
 </Main>

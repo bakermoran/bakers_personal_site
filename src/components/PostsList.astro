@@ -2,12 +2,17 @@
 import { getCollection } from 'astro:content';
 import PostListItem from '@/components/PostListItem.astro';
 
+interface Props {
+  limit?: number;
+}
+
+const { limit } = Astro.props;
+
 const posts = await getCollection('blog', ({ data }) => !data.draft);
-const sorted = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <ul class="divide-y space-y-6">
-  {sorted.map((post, idx) => (
+  {posts.slice(0, limit).map((post, idx) => (
     <li>
       <PostListItem post={post} index={idx}/>
     </li>

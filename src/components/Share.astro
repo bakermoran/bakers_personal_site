@@ -1,0 +1,51 @@
+---
+import { icon } from "@fortawesome/fontawesome-svg-core";
+import { faFacebook, faLinkedin, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope, faComment } from "@fortawesome/free-solid-svg-icons";
+import CopyButton from "./CopyButton.astro";
+
+const currentPath = Astro.url.toString()
+
+const links = [
+    {
+        name: 'Facebook',
+        url: `https://www.facebook.com/sharer/sharer.php?u=${currentPath}`,
+        svg: icon(faFacebook).html[0]
+    },
+    {
+        name: 'LinkedIn',
+        url: `https://www.linkedin.com/shareArticle?mini=true&url=${currentPath}`,
+        svg: icon(faLinkedin).html[0]
+    },
+    {
+        name: 'Twitter',
+        url: `https://twitter.com/intent/tweet?url=${currentPath}`,
+        svg: icon(faTwitter).html[0]
+    },
+    {
+        name: 'Email',
+        url: `mailto:?subject=Check out this blog post&body=${currentPath}`,
+        svg: icon(faEnvelope).html[0]
+    },
+    {
+        name: 'SMS',
+        url: `sms:?&body=Check out this blog post: ${currentPath}`,
+        svg: icon(faComment).html[0]
+    }
+];
+---
+
+<div class="flex items-center gap-4">
+    {links.map(({ url, svg, name }) => (
+        <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={name}
+            class="text-muted-foreground hover:text-primary transition-colors duration-200 [&>svg]:h-6 [&>svg]:w-6"
+        >
+            <Fragment set:html={svg} />
+        </a>
+    ))}
+    <CopyButton target={currentPath}/>
+</div>

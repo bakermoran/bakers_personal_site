@@ -1,0 +1,129 @@
+---
+import { faCopy, faCheck } from "@fortawesome/free-solid-svg-icons";
+import { icon } from "@fortawesome/fontawesome-svg-core";
+import Tooltip from "@/components/islands/Tooltip";
+
+const copyHtml = icon(faCopy).html[0];
+const checkHtml = icon(faCheck).html[0];
+
+interface Props {
+  target: string;
+}
+
+const { target } = Astro.props;
+---
+
+<Tooltip client:load />
+
+<button
+  id="copy-link"
+  type="button"
+  aria-label="Copy link"
+  class="copy-button text-muted-foreground hover:text-primary transition-colors duration-200 cursor-pointer"
+>
+  <span class="icon copy-icon" aria-hidden="true">
+    <Fragment set:html={copyHtml} />
+  </span>
+
+  <span class="icon check-icon" aria-hidden="true">
+    <Fragment set:html={checkHtml} />
+  </span>
+
+  <span class="copied-text text-sm" aria-live="polite">Copied!</span>
+</button>
+
+<script define:vars={{ target }}>
+  const button = document.getElementById("copy-link");
+
+  if (button) {
+    let resetTimeout: ReturnType<typeof setTimeout> | null = null;
+
+    button.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(target);
+
+        button.classList.add("is-copied");
+
+        if (resetTimeout) clearTimeout(resetTimeout);
+
+        resetTimeout = setTimeout(() => {
+          button.classList.remove("is-copied");
+        }, 2000);
+      } catch (error) {
+        console.error("Failed to copy link:", error);
+      }
+    });
+  }
+</script>
+
+<style>
+  .copy-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .copy-button :global(svg) {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: block;
+  }
+
+  .icon {
+    position: absolute;
+    inset: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+      opacity 200ms ease,
+      transform 200ms ease;
+  }
+
+  .copy-icon {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .check-icon {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+
+  .copied-text {
+    position: absolute;
+    left: calc(100% + 0.5rem);
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(2px);
+    pointer-events: none;
+    transition:
+      opacity 200ms ease,
+      transform 200ms ease;
+  }
+
+  .copy-button.is-copied .copy-icon {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+
+  .copy-button.is-copied .check-icon {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .copy-button.is-copied .copied-text {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .icon,
+    .copied-text {
+      transition: none;
+    }
+  }
+</style>

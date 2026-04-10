@@ -8,9 +8,9 @@ const { Content, frontmatter } = await import('@/content/about.md');
 
 <Main title={frontmatter.title}>
     <Hero />
+    <Prose class="max-w-none">
     <article class="mt-12">
-        <Prose>
-            <Content />
-        </Prose>
+        <Content />
     </article>
+    </Prose>
 </Main>

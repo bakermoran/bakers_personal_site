@@ -23,7 +23,7 @@ I’ve discovered over quarantine that one of my passions is language. I’ve al
 
 ## Why should you care?
 
-I’m sure you’ve heard this many times before, both in school and in life: “learn another language”. We as Americans are slacking when it comes to speaking a second language\[1]. The question for most people is, why does it matter? Some responses you’ve likely said or thought:
+I’m sure you’ve heard this many times before, both in school and in life: “learn another language”. We as Americans are slacking when it comes to speaking a second language[^1]. The question for most people is, why does it matter? Some responses you’ve likely said or thought:
 
 - English is the lingua franca (common language) for most of the world, and I already speak it
 - I am never in a situation where I need to speak another language with someone
@@ -52,13 +52,13 @@ We can see from these examples how growing up a speaker of another language coul
 
 ### Gendered Nouns
 
-There have been multiple studies on the way that gendered nouns affect the way you perceive the world. In German, “bridge” is a feminine noun; in Spanish, it is masculine. In a 2003 study\[2], native German and Spanish speakers were asked to categorize a list of nouns. The catch was, all participants were fluent in English, and the study was conducted in English.
+There have been multiple studies on the way that gendered nouns affect the way you perceive the world. In German, “bridge” is a feminine noun; in Spanish, it is masculine. In a 2003 study[^2], native German and Spanish speakers were asked to categorize a list of nouns. The catch was, all participants were fluent in English, and the study was conducted in English.
 
-“German speakers described bridges as beautiful, elegant, fragile, pretty, and slender, while Spanish speakers said they were big, dangerous, strong, sturdy, and towering”[3](https://www.psychologytoday.com/us/blog/culture-conscious/201209/masculine-or-feminine-and-why-it-matters) _all while speaking English_. The fact that these participants described the words as such while speaking an un-gendered language shows the way that the genders subtly affect the way we think about things around us. Even the way you perceive inanimate objects.
+“German speakers described bridges as beautiful, elegant, fragile, pretty, and slender, while Spanish speakers said they were big, dangerous, strong, sturdy, and towering”[^3] _all while speaking English_. The fact that these participants described the words as such while speaking an un-gendered language shows the way that the genders subtly affect the way we think about things around us. Even the way you perceive inanimate objects.
 
 ### Past, Present, and Future tense
 
-Unlike English, Indonesian does not have verb endings that indicate tense (this is a hard concept to grasp for an English speaker). In a 2002 study\[4], participants who spoke English and Indonesian were shown pictures of a man who had either just kicked a ball, was in the process of kicking a ball, or who was about to start kicking a ball. They were then asked to later recall what was happening in the photo. The English speakers were able to recall which of the three they were shown with much greater accuracy. The language you speak and think in subconsciously influences even the way you remember your experiences.
+Unlike English, Indonesian does not have verb endings that indicate tense (this is a hard concept to grasp for an English speaker). In a 2002 study[^4], participants who spoke English and Indonesian were shown pictures of a man who had either just kicked a ball, was in the process of kicking a ball, or who was about to start kicking a ball. They were then asked to later recall what was happening in the photo. The English speakers were able to recall which of the three they were shown with much greater accuracy. The language you speak and think in subconsciously influences even the way you remember your experiences.
 
 ### Number of words
 
@@ -72,10 +72,10 @@ It’s often said that the more words a language or culture has for something, t
 
 If you’re anything like me, these conclusions are mind-boggling. Something as simple as language has the ability to influence how we perceive the world, and how we remember our experiences. The question is, what do you not know about how your experience is being shaped because you are an English speaker? You have the power to unlearn what you’ve learned since birth, and unlock new perspectives, simply by spending a few minutes a day learning a new language.
 
-## References
+[^1]: [Over half of the world can speak two or more languages](https://www.washingtonpost.com/local/education/half-the-world-is-bilingual-whats-our-problem/2019/04/24/1c2b0cc2-6625-11e9-a1b6-b29b90efa879_story.html), and only 20% of Americans can. And let's be honest, most of that 20% likely comes from immigrants to America
 
-\[1]: [Over half of the world can speak two or more languages](https://www.washingtonpost.com/local/education/half-the-world-is-bilingual-whats-our-problem/2019/04/24/1c2b0cc2-6625-11e9-a1b6-b29b90efa879_story.html), and only 20% of Americans can. And let's be honest, most of that 20% likely comes from immigrants to America
+[^2]: Boroditsky, L., Schmidt, L., & Phillips, W. (2003). Sex, Syntax, and Semantics. In Language in mind: Advances in the study of language and cognition, ed. D. Gentner & S. Goldin-Meadow, pp. 61- 80. Cambridge University Press.
 
-\[2]: Boroditsky, L., Schmidt, L., & Phillips, W. (2003). Sex, Syntax, and Semantics. In Language in mind: Advances in the study of language and cognition, ed. D. Gentner & S. Goldin-Meadow, pp. 61- 80. Cambridge University Press.
+[^3]: ["Masculine or Feminine, and Why It Matters"](https://www.psychologytoday.com/us/blog/culture-conscious/201209/masculine-or-feminine-and-why-it-matters), Psychology Today.
 
-\[4]: Boroditsky, L., Ham, W., & Ramscar, M. (2002). What is universal in event perception? Comparing English & Indonesian speakers. Proceedings of the Annual Meeting of the Cognitive Science Society, 24. Retrieved from https://escholarship.org/uc/item/5jd5w5c8
+[^4]: Boroditsky, L., Ham, W., & Ramscar, M. (2002). What is universal in event perception? Comparing English & Indonesian speakers. Proceedings of the Annual Meeting of the Cognitive Science Society, 24. Retrieved from https://escholarship.org/uc/item/5jd5w5c8
