@@ -9,8 +9,8 @@ interface Props {
 export default function LocaleSwitcher({ currentLocale, localizedLinks }: Props) {
   return (
     <DropdownMenu.Root>
-      <DropdownMenu.Trigger>
-        <GlobeAltIcon className="h-5 w-5" />
+      <DropdownMenu.Trigger className="h-10">
+        <GlobeAltIcon className="h-6 w-6" />
         <span className="hidden text-sm sm:inline">{currentLocale.toUpperCase()}</span>
         <ChevronDownIcon className="h-3 w-3 hidden sm:inline" />
       </DropdownMenu.Trigger>

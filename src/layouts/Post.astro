@@ -4,6 +4,7 @@ import BackButton from '@/components/BackButton.astro';
 import Layout from './Layout.astro';
 import PostCompleteCheck from '@/components/PostCompleteCheck.astro';
 import ScrollProgress from '@/components/ScrollProgress.astro';
+import ThemeButton from '@/components/ThemeButton.astro';
 
 interface Props {
   title: string;
@@ -14,6 +15,9 @@ const { title } = Astro.props;
 <Layout title={title}>
   <ScrollProgress />
   <BackButton />
+  <div class="hidden lg:block fixed top-4 left-26 z-20">
+    <ThemeButton />
+  </div>
   <Container size="none">
     <slot />
     <PostCompleteCheck />

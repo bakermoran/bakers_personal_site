@@ -6,7 +6,7 @@ const currentLocale = getLangFromUrl(Astro.url);
 const t = useTranslations(currentLocale);
 ---
 
-<a href="javascript:history.back()" class="p-2 w-fit border rounded-sm hidden lg:block lg:fixed top-4 left-4 bg-muted text-muted-foreground hover:bg-accent hover:text-foreground transition-colors">
+<a href="javascript:history.back()" class="p-2 h-10 rounded-sm hidden lg:block fixed top-4 left-4 text-muted-foreground hover:bg-accent hover:text-foreground transition-colors">
     <div class="flex flex-row items-center gap-2">
         <ArrowLeftIcon className="h-4 w-4" />
         {t("nav.back")}

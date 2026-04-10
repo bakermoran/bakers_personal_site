@@ -20,6 +20,7 @@
     "test": "vitest run",
     "lint": "oxlint",
     "format": "oxfmt && prettier --write \"src/**/*.astro\"",
+    "format:check": "oxfmt --check && prettier --check \"src/**/*.astro\"",
     "prepare": "husky"
   },
   "dependencies": {

@@ -1,7 +1,7 @@
 echo "Running pre-commit checks..."
 
 echo "Formatting..."
-bun run format || exit 1
+bun run format:check || exit 1
 
 echo "Linting..."
 bun run lint || exit 1
