@@ -15,6 +15,8 @@ export const ui = {
     "nav.projects": "Projects",
     name: "English",
     code: "en",
+    "copied.title": "Copied!",
+    "copied.description": "Link copied to clipboard",
   },
   fr: {
     "nav.menu": "Menu",
@@ -25,5 +27,7 @@ export const ui = {
     "nav.projects": "Projets",
     name: "Français",
     code: "fr",
+    "copied.title": "Copié !",
+    "copied.description": "Lien copié dans le presse-papiers",
   },
 } as const;

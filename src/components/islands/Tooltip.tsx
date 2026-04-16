@@ -1,22 +1,25 @@
-import * as React from "react";
+import React, { type ReactNode, type PropsWithChildren } from "react";
 import * as Radix from "@radix-ui/react-tooltip";
 
-const TooltipDemo = () => {
+interface Props extends PropsWithChildren<Radix.TooltipProps> {
+  content: ReactNode;
+}
+
+export const Tooltip = ({ children, content, ...props }: Props) => {
   return (
-    <Radix.Provider>
-      <Radix.Root>
-        <Radix.Trigger asChild>
-          <button className="IconButton">Testing</button>
-        </Radix.Trigger>
+    <Radix.Provider delayDuration={500}>
+      <Radix.Root {...props}>
+        <Radix.Trigger>{children}</Radix.Trigger>
         <Radix.Portal>
-          <Radix.Content className="TooltipContent" sideOffset={5}>
-            Add to library
-            <Radix.Arrow className="RadixArrow" />
+          <Radix.Content
+            className="p-2 rounded-md bg-primary text-primary-foreground"
+            sideOffset={5}
+          >
+            {content}
+            <Radix.Arrow />
           </Radix.Content>
         </Radix.Portal>
       </Radix.Root>
     </Radix.Provider>
   );
 };
-
-export default TooltipDemo;

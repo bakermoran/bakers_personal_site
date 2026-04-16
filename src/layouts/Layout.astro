@@ -2,6 +2,7 @@
 import '@/styles/global.css'
 import { Font } from "astro:assets";
 import Footer from '@/components/Footer.astro';
+import Toast from '@/components/islands/Toast';
 import { getLangFromUrl } from '@/i18n/utils';
 
 interface Props {
@@ -42,5 +43,6 @@ const currentLocale = getLangFromUrl(Astro.url);
       <slot />
     </main>
     <Footer />
+    <Toast client:load />
   </body>
 </html>

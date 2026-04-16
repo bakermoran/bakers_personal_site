@@ -11,7 +11,7 @@ export const Trigger = React.forwardRef<
     className={[
       "flex cursor-pointer items-center gap-1.5 rounded-md px-2 py-1.5",
       "text-sm text-muted-foreground transition-colors",
-      "hover:bg-accent hover:text-foreground",
+      "hover:bg-accent hover:text-foreground active:bg-accent active:scale-95",
       "focus:outline-none focus-visible:ring-2 focus-visible:ring-ring",
       className,
     ]
