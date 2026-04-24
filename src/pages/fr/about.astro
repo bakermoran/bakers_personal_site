@@ -1,6 +1,16 @@
 ---
+import Hero from '@/components/Hero.astro';
+import Prose from '@/components/Prose.astro';
 import Main from '@/layouts/Main.astro';
+
+const { Content, frontmatter } = await import('@/content/about.md');
 ---
-<Main title="À propos">
-  <h1 class="text-red-300">Bonjour le monde</h1>
+
+<Main title={frontmatter.title}>
+    <Hero />
+    <Prose class="max-w-none">
+    <article class="mt-12">
+        <Content />
+    </article>
+    </Prose>
 </Main>

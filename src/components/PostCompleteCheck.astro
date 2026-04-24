@@ -1,5 +1,10 @@
 ---
-const { text = "You made it to the end" } = Astro.props;
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+
+const currentLocale = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLocale);
+
+const { text = t("post.complete") } = Astro.props;
 ---
 
 <div

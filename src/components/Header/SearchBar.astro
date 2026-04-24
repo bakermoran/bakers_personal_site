@@ -1,0 +1,33 @@
+---
+import Input from "@/components/ui/Input.astro";
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+
+const currentLocale = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLocale);
+---
+
+<button
+  type="button"
+  id="command-palette-trigger"
+  class="hidden lg:block text-left"
+  aria-label="Open command palette"
+>
+  <Input
+    type="text"
+    placeholder={`⌘ K ${t("search")}...`}
+    readonly
+    tabindex="-1"
+    class="pointer-events-none rounded-md border border-muted bg-popover px-3 py-2 focus:outline-none focus:ring-2 focus:ring-mcm-blue disabled:cursor-not-allowed disabled:opacity-50"
+  />
+</button>
+
+<script>
+  const btn = document.getElementById("command-palette-trigger");
+  const input = btn?.querySelector("input");
+  if (input && !navigator.platform.toLowerCase().includes("mac")) {
+    input.placeholder = "Ctrl K Search...";
+  }
+  btn?.addEventListener("click", () => {
+    window.dispatchEvent(new CustomEvent("command-palette:toggle"));
+  });
+</script>

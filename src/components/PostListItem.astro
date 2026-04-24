@@ -1,11 +1,10 @@
 ---
-import { format } from 'date-fns';
 import type { CollectionEntry } from 'astro:content';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import SquareIcons from './SquareIcon.astro';
 import { ArrowRightIcon } from '@heroicons/react/24/outline'
 import { render } from 'astro:content';
-import { getLangFromUrl } from '@/i18n/utils';
+import { getLangFromUrl, formatDate } from '@/i18n/utils';
 
 interface Props {
   index: number;
@@ -18,13 +17,14 @@ const currentLocale = getLangFromUrl(Astro.url);
 const colors = ['red', 'blue', 'yellow'] as const;
 const color = colors[index % colors.length];
 const { remarkPluginFrontmatter } = await render(post);
+
 ---
 
 <div class="flex flex-col gap-2 mb-6">
     <div class="flex items-center gap-4 text-sm text-muted-foreground">
         <SquareIcons color={color} size="small" />
         <h3 class="font-mono">{post.data.category}</h3>
-        <time class="font-mono">{format(post.data.date, 'MMMM d, yyyy')}</time>
+        <time class="font-mono">{formatDate(post.data.date, 'MMMM d, yyyy', currentLocale)}</time>
     </div>
 
     <a

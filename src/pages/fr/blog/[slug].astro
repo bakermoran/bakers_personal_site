@@ -1,8 +1,9 @@
 ---
 import { getCollection, render } from 'astro:content';
-import { format } from 'date-fns';
+import { getLangFromUrl, formatDate } from '@/i18n/utils';
 import Post from '@/layouts/Post.astro';
 import Prose from '@/components/Prose.astro';
+import Share from '@/components/Share.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -17,10 +18,13 @@ const { Content, remarkPluginFrontmatter } = await render(post);
 ---
 
 <Post title={post.data.title}>
-    <article class="flex flex-col gap-4 mt-4">
-      <h1 class="text-3xl">{post.data.title}</h1>
-      <div>{remarkPluginFrontmatter.minutesRead}</div>
-      <time>{format(post.data.date, 'MMMM d, yyyy')}</time>
+    <article class="flex flex-col items-center gap-4">
+      <div class="flex flex-col gap-2 w-full max-w-prose">
+        <h1 class="text-3xl">{post.data.title}</h1>
+        <div class="font-mono">{remarkPluginFrontmatter.minutesRead}</div>
+        <time>{formatDate(post.data.date, 'MMMM d, yyyy', getLangFromUrl(Astro.url))}</time>
+        <Share />
+      </div>
       <Prose>
         <Content />
       </Prose>
