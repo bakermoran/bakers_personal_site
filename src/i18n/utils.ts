@@ -16,7 +16,6 @@ export function useTranslations(lang: keyof typeof ui) {
 
 export function getLocalizedPath(lang: keyof typeof ui, path: string) {
   const normalized = path.startsWith("/") ? path : `/${path}`;
-  if (lang === defaultLang) return normalized;
   return normalized === "/" ? `/${lang}` : `/${lang}${normalized}`;
 }
 

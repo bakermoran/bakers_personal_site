@@ -9,7 +9,7 @@ const t = useTranslations(currentLocale);
 <button
   type="button"
   id="command-palette-trigger"
-  class="hidden lg:block text-left"
+  class="hidden lg:block text-left rounded-md border border-muted active:scale-98"
   aria-label="Open command palette"
 >
   <Input
@@ -17,17 +17,25 @@ const t = useTranslations(currentLocale);
     placeholder={`⌘ K ${t("search")}...`}
     readonly
     tabindex="-1"
-    class="pointer-events-none rounded-md border border-muted bg-popover px-3 py-2 focus:outline-none focus:ring-2 focus:ring-mcm-blue disabled:cursor-not-allowed disabled:opacity-50"
+    class="pointer-events-none bg-popover px-3 py-2"
   />
 </button>
 
 <script>
-  const btn = document.getElementById("command-palette-trigger");
-  const input = btn?.querySelector("input");
-  if (input && !navigator.platform.toLowerCase().includes("mac")) {
-    input.placeholder = "Ctrl K Search...";
+  function initSearchBar() {
+    const btn = document.getElementById("command-palette-trigger");
+    if (!btn || btn.dataset.searchBound === "true") return;
+
+    btn.dataset.searchBound = "true";
+    const input = btn.querySelector("input");
+    if (input && !navigator.platform.toLowerCase().includes("mac")) {
+      input.placeholder = "Ctrl K Search...";
+    }
+    btn.addEventListener("click", () => {
+      window.dispatchEvent(new CustomEvent("command-palette:toggle"));
+    });
   }
-  btn?.addEventListener("click", () => {
-    window.dispatchEvent(new CustomEvent("command-palette:toggle"));
-  });
+
+  initSearchBar();
+  document.addEventListener("astro:page-load", initSearchBar);
 </script>
