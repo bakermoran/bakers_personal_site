@@ -20,6 +20,14 @@ export function getLocalizedPath(lang: keyof typeof ui, path: string) {
   return normalized === "/" ? `/${lang}` : `/${lang}${normalized}`;
 }
 
+export function currentPathWithoutLang(pathname: string) {
+  const [, maybeLang, ...rest] = pathname.split("/");
+  if (maybeLang && maybeLang in ui) {
+    return `/${rest.join("/")}`;
+  }
+  return pathname;
+}
+
 export function getLocale(currentLocale: keyof typeof ui) {
   switch (currentLocale) {
     case "en":

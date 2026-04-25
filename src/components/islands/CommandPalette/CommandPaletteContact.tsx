@@ -1,15 +1,18 @@
-import CommandPalette, { filterItems, getItemIndex, type JsonStructure } from "react-cmdk";
+import { type JsonStructure } from "react-cmdk";
 import "react-cmdk/dist/cmdk.css";
 import "./CommandPalette.css";
 import { useCommandPaletteContext } from "./Context";
+import { CommandPalette } from "./CommandPaletteComponent";
 import { socialLinks } from "@/content/socialLinks";
+import { useTranslations } from "@/i18n/utils";
 
 export const CommandPaletteContact = () => {
-  const { search, setPage } = useCommandPaletteContext();
+  const { setPage, lang } = useCommandPaletteContext();
+  const t = useTranslations(lang);
 
   const items: JsonStructure = [
     {
-      heading: "Contact",
+      heading: t("contact"),
       id: "contact",
       items: socialLinks.map(({ name, url }) => ({
         id: name.toLowerCase(),
@@ -19,21 +22,13 @@ export const CommandPaletteContact = () => {
       })),
     },
   ];
-  const filteredItems = filterItems(items, search);
 
   return (
-    <CommandPalette.Page id="contact" searchPrefix={["Contact"]} onEscape={() => setPage("root")}>
-      {filteredItems.length ? (
-        filteredItems.map((list) => (
-          <CommandPalette.List key={list.id} heading={list.heading}>
-            {list.items.map(({ id, ...rest }) => (
-              <CommandPalette.ListItem key={id} index={getItemIndex(filteredItems, id)} {...rest} />
-            ))}
-          </CommandPalette.List>
-        ))
-      ) : (
-        <CommandPalette.FreeSearchAction />
-      )}
-    </CommandPalette.Page>
+    <CommandPalette.Group
+      items={items}
+      id="contact"
+      searchPrefix={[t("contact")]}
+      onEscape={() => setPage("root")}
+    />
   );
 };

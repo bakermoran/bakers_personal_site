@@ -1,7 +1,6 @@
 import CommandPaletteBase, { useHandleOpenCommandPalette } from "react-cmdk";
 import { useEffect } from "react";
 import { useTranslations } from "@/i18n/utils";
-import type { ui } from "@/i18n/ui";
 import { CommandPaletteRoot } from "./CommandPaletteRoot";
 
 import "react-cmdk/dist/cmdk.css";
@@ -11,10 +10,9 @@ import { CommandPaletteContact } from "./CommandPaletteContact";
 import { CommandPalettePosts } from "./CommandPalettePosts";
 import { CommandPaletteLang } from "./CommandPaletteLang";
 
-export const CommandPalette = ({ locale = "en" }: { locale?: keyof typeof ui }) => {
-  const t = useTranslations(locale);
-
-  const { page, setPage, open, setOpen, search, setSearch } = useCommandPaletteContext();
+export const CommandPalette = () => {
+  const { page, setPage, open, setOpen, search, setSearch, lang } = useCommandPaletteContext();
+  const t = useTranslations(lang);
 
   useHandleOpenCommandPalette(setOpen);
 

@@ -1,44 +1,42 @@
-import CommandPalette, { filterItems, getItemIndex, type JsonStructure } from "react-cmdk";
+import { type JsonStructure } from "react-cmdk";
 import "react-cmdk/dist/cmdk.css";
 import "./CommandPalette.css";
 import { useCommandPaletteContext } from "./Context";
+import { CommandPalette } from "./CommandPaletteComponent";
+import { getLocalizedPath, currentPathWithoutLang, useTranslations } from "@/i18n/utils";
 
 export const CommandPaletteLang = () => {
-  const { search, setPage } = useCommandPaletteContext();
+  const { setPage, lang } = useCommandPaletteContext();
+  const t = useTranslations(lang);
+  const basePath = currentPathWithoutLang(window.location.pathname);
 
   const items: JsonStructure = [
     {
-      heading: "Language",
+      heading: t("language"),
       id: "language",
       items: [
         {
           id: "english",
-          children: "English",
-          href: "/en",
+          children: t("englishNative"),
+          href: getLocalizedPath("en", basePath),
+          keywords: [t("english"), t("englishNative"), "en"],
         },
         {
           id: "french",
-          children: "French",
-          href: "/fr",
+          children: t("frenchNative"),
+          href: getLocalizedPath("fr", basePath),
+          keywords: [t("french"), t("frenchNative"), "fr"],
         },
       ],
     },
   ];
-  const filteredItems = filterItems(items, search);
 
   return (
-    <CommandPalette.Page id="language" searchPrefix={["Language"]} onEscape={() => setPage("root")}>
-      {filteredItems.length ? (
-        filteredItems.map((list) => (
-          <CommandPalette.List key={list.id} heading={list.heading}>
-            {list.items.map(({ id, ...rest }) => (
-              <CommandPalette.ListItem key={id} index={getItemIndex(filteredItems, id)} {...rest} />
-            ))}
-          </CommandPalette.List>
-        ))
-      ) : (
-        <CommandPalette.FreeSearchAction />
-      )}
-    </CommandPalette.Page>
+    <CommandPalette.Group
+      items={items}
+      id="language"
+      searchPrefix={[t("language")]}
+      onEscape={() => setPage("root")}
+    />
   );
 };

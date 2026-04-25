@@ -1,12 +1,13 @@
-import CommandPalette, { filterItems, getItemIndex, type JsonStructure } from "react-cmdk";
+import { type JsonStructure } from "react-cmdk";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 import "react-cmdk/dist/cmdk.css";
 import "./CommandPalette.css";
 import { useCommandPaletteContext } from "./Context";
 import { getLocalizedPath, useTranslations } from "@/i18n/utils";
+import { CommandPalette } from "./CommandPaletteComponent";
 
 export const CommandPaletteRoot = () => {
-  const { search, setPage, lang } = useCommandPaletteContext();
+  const { setPage, lang } = useCommandPaletteContext();
   const t = useTranslations(lang);
 
   const items: JsonStructure = [
@@ -29,12 +30,6 @@ export const CommandPaletteRoot = () => {
           id: "about",
           children: t("nav.about"),
           href: getLocalizedPath(lang, "/about"),
-        },
-        {
-          id: "contactLinks",
-          children: t("contact"),
-          closeOnSelect: false,
-          onClick: () => setPage("contact"),
         },
       ],
     },
@@ -63,9 +58,14 @@ export const CommandPaletteRoot = () => {
       ],
     },
     {
-      heading: t("language"),
-      id: "language",
+      id: "other",
       items: [
+        {
+          id: "contactLinks",
+          children: t("contact"),
+          closeOnSelect: false,
+          onClick: () => setPage("contact"),
+        },
         {
           id: "language",
           children: t("pickLanguage"),
@@ -76,21 +76,5 @@ export const CommandPaletteRoot = () => {
     },
   ];
 
-  const filteredItems = filterItems(items, search);
-
-  return (
-    <CommandPalette.Page id="root">
-      {filteredItems.length ? (
-        filteredItems.map((list) => (
-          <CommandPalette.List key={list.id} heading={list.heading}>
-            {list.items.map(({ id, ...rest }) => (
-              <CommandPalette.ListItem key={id} index={getItemIndex(filteredItems, id)} {...rest} />
-            ))}
-          </CommandPalette.List>
-        ))
-      ) : (
-        <CommandPalette.FreeSearchAction label={t("cmdk.placeholder")} />
-      )}
-    </CommandPalette.Page>
-  );
+  return <CommandPalette.Group items={items} id="root" />;
 };
