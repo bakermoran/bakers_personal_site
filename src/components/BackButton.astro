@@ -2,7 +2,7 @@
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
-const currentLocale = getLangFromUrl(Astro.url);
+const currentLocale = getLangFromUrl(Astro.originPathname);
 const t = useTranslations(currentLocale);
 ---
 

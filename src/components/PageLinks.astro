@@ -3,7 +3,7 @@ import Link from '@/components/ui/Link.astro';
 import { navigation } from '@/constants';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
-const currentLocale = getLangFromUrl(Astro.url);
+const currentLocale = getLangFromUrl(Astro.originPathname);
 const t = useTranslations(currentLocale);
 
 interface Props {

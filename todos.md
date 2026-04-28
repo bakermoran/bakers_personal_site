@@ -2,6 +2,7 @@
 - already read indication
 - standardize icon sizes
 - optimize images in markdown articles
+- separate content by lang
 - move about page to pure markdown
 - add fun components like accordion, use modals for stuff
 - custom right click menu
@@ -13,3 +14,5 @@
   consolidate icon providers
   use radix themes?
   consolidate button styles (scale 95 etc)
+  why small icons in article page - they shrink after refresh
+  home button on article page on mobile

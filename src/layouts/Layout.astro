@@ -13,7 +13,7 @@ interface Props {
 }
 
 const { title } = Astro.props;
-const currentLocale = getLangFromUrl(Astro.url);
+const currentLocale = getLangFromUrl(Astro.originPathname);
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
               .map(({ data: { id, title } }) => ({
@@ -37,7 +37,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
     />
     <ClientRouter />
     <script is:inline>
-      (function() {
+      function applyTheme() {
         var saved = localStorage.getItem("theme");
         var theme = saved === "dark" || saved === "light"
           ? saved
@@ -45,7 +45,10 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
             ? "dark"
             : "light";
         document.documentElement.classList.toggle("dark", theme === "dark");
-      })();
+      }
+
+      applyTheme();
+      document.addEventListener("astro:after-swap", applyTheme);
     </script>
   </head>
   <body class="flex flex-col min-h-screen h-full">

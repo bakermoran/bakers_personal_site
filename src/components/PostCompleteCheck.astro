@@ -1,7 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
-const currentLocale = getLangFromUrl(Astro.url);
+const currentLocale = getLangFromUrl(Astro.originPathname);
 const t = useTranslations(currentLocale);
 
 const { text = t("post.complete") } = Astro.props;

@@ -4,6 +4,12 @@
    so we just point overrides at those tokens and rely on source order to win
    against the bundled cmdk.css. */
 
+/* Lift palette stacking context above the sticky header (z-50) so the
+   backdrop blur covers it instead of rendering behind. */
+.command-palette {
+  z-index: 60;
+}
+
 /* Backdrop */
 .command-palette .fixed.inset-0.bg-gray-900 {
   background-color: oklch(0% 0 0 / 0.18);

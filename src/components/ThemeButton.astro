@@ -24,8 +24,6 @@ interface Props {
 </Button>
 
 <script>
-  import { setTheme } from "@/scripts/setTheme";
-
   function initThemeToggle() {
     const btn = document.getElementById('theme-toggle');
     if (!btn || btn.dataset.themeBound === 'true') return;
@@ -34,7 +32,7 @@ interface Props {
     btn.addEventListener('click', () => {
       const nextTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
       localStorage.setItem('theme', nextTheme);
-      setTheme();
+      document.documentElement.classList.toggle('dark', nextTheme === 'dark');
     });
   }
 

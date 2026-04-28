@@ -3,8 +3,11 @@ import { icon } from "@fortawesome/fontawesome-svg-core";
 import { faFacebook, faLinkedin, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faComment } from "@fortawesome/free-solid-svg-icons";
 import CopyButton from "./CopyButton.astro";
+import { useTranslations, getLangFromUrl } from "@/i18n/utils";
 
 const currentPath = Astro.url.toString()
+const currentLocale = getLangFromUrl(Astro.originPathname);
+const t = useTranslations(currentLocale);
 
 const links = [
     {
@@ -24,12 +27,12 @@ const links = [
     },
     {
         name: 'Email',
-        url: `mailto:?subject=Check out this blog post&body=${currentPath}`,
+        url: `mailto:?subject=${t("article.share")}&body=${currentPath}`,
         svg: icon(faEnvelope).html[0]
     },
     {
         name: 'SMS',
-        url: `sms:?&body=Check out this blog post: ${currentPath}`,
+        url: `sms:?&body=${t("article.share")}: ${currentPath}`,
         svg: icon(faComment).html[0]
     }
 ];

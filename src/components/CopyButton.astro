@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { target } = Astro.props;
-const currentLocale = getLangFromUrl(Astro.url);
+const currentLocale = getLangFromUrl(Astro.originPathname);
 const t = useTranslations(currentLocale);
 
 const copiedTitle = t("copied.title");

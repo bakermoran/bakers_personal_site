@@ -4,8 +4,8 @@ import Link from '@/components/ui/Link.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import LocaleSwitcher from '@/components/islands/LocaleSwitcher';
 import Logo from '../Logo.astro';
+import { Bars3Icon } from '@heroicons/react/24/outline'
 import PageLinks from '../PageLinks.astro';
-import MobileNav from '@/components/islands/MobileNav';
 import { getLangFromUrl } from '@/i18n/utils';
 import SearchBar from './SearchBar.astro';
 
@@ -14,8 +14,8 @@ const languages = [
   { code: "fr", name: "Français" }
 ]
 
-const currentPath = Astro.url.pathname
-const currentLocale = getLangFromUrl(Astro.url);
+const currentPath = Astro.originPathname
+const currentLocale = getLangFromUrl(Astro.originPathname);
 const pathWithoutLocale = currentPath.replace(/^\/(en|fr)/, '') || '/';
 
 const localizedLinks = languages.map((lang) => ({
@@ -49,13 +49,16 @@ const localizedLinks = languages.map((lang) => ({
       />
       <ThemeButton />
 
-      <!-- Mobile Navigation Dropdown -->
-      <MobileNav client:load currentPath={currentPath} locale={currentLocale} />
+      <Bars3Icon
+        id="mobile-nav-button"
+        className="h-5 w-5 inline md:hidden"
+      />
     </div>
   </div>
 </header>
 
-<script is:inline>
+<script>
+  import { openCommandPalette } from "@/scripts/openCommandPalette";
   const header = document.getElementById('site-header');
 
   let lastY = window.scrollY;
@@ -91,4 +94,11 @@ const localizedLinks = languages.map((lang) => ({
   };
 
   window.addEventListener('scroll', onScroll, { passive: true });
+
+  const mobileNavButton = document.getElementById('mobile-nav-button');
+  if (mobileNavButton) {
+    mobileNavButton.addEventListener('click', () => {
+      openCommandPalette();
+    });
+  }
 </script>

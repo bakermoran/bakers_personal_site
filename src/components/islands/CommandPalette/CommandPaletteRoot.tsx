@@ -1,5 +1,5 @@
 import { type JsonStructure } from "react-cmdk";
-import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
+import { SunIcon, MoonIcon, PhoneIcon, LanguageIcon } from "@heroicons/react/24/outline";
 import "react-cmdk/dist/cmdk.css";
 import "./CommandPalette.css";
 import { useCommandPaletteContext } from "./Context";
@@ -63,12 +63,14 @@ export const CommandPaletteRoot = () => {
         {
           id: "contactLinks",
           children: t("contact"),
+          icon: PhoneIcon,
           closeOnSelect: false,
           onClick: () => setPage("contact"),
         },
         {
           id: "language",
           children: t("pickLanguage"),
+          icon: LanguageIcon,
           closeOnSelect: false,
           onClick: () => setPage("language"),
         },

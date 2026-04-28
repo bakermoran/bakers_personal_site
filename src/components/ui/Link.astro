@@ -5,8 +5,8 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 
 interface Props extends HTMLAttributes<"link"> {}
 
-const currentPath = Astro.url.pathname
-const currentLocale = getLangFromUrl(Astro.url);
+const currentPath = Astro.originPathname
+const currentLocale = getLangFromUrl(Astro.originPathname);
 const { href, ...props } = Astro.props;
 ---
 

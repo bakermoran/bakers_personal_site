@@ -6,7 +6,7 @@ import PostsList from '@/components/PostsList.astro';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import Main from '@/layouts/Main.astro';
 
-const currentLocale = getLangFromUrl(Astro.url);
+const currentLocale = getLangFromUrl(Astro.originPathname);
 const t = useTranslations(currentLocale);
 ---
 <Main title={t("nav.home")} class="flex flex-col gap-12">

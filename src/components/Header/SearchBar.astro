@@ -2,7 +2,7 @@
 import Input from "@/components/ui/Input.astro";
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
-const currentLocale = getLangFromUrl(Astro.url);
+const currentLocale = getLangFromUrl(Astro.originPathname);
 const t = useTranslations(currentLocale);
 ---
 
@@ -22,6 +22,8 @@ const t = useTranslations(currentLocale);
 </button>
 
 <script>
+  import { openCommandPalette } from "@/scripts/openCommandPalette";
+
   function initSearchBar() {
     const btn = document.getElementById("command-palette-trigger");
     if (!btn || btn.dataset.searchBound === "true") return;
@@ -32,7 +34,7 @@ const t = useTranslations(currentLocale);
       input.placeholder = "Ctrl K Search...";
     }
     btn.addEventListener("click", () => {
-      window.dispatchEvent(new CustomEvent("command-palette:toggle"));
+      openCommandPalette();
     });
   }
 

@@ -4,7 +4,7 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 import SquareIcons from './SquareIcon.astro';
 import { ArrowRightIcon } from '@heroicons/react/24/outline'
 import { render } from 'astro:content';
-import { getLangFromUrl, formatDate } from '@/i18n/utils';
+import { getLangFromUrl, formatDate, useTranslations } from '@/i18n/utils';
 
 interface Props {
   index: number;
@@ -12,7 +12,8 @@ interface Props {
 }
 
 const { post, index } = Astro.props;
-const currentLocale = getLangFromUrl(Astro.url);
+const currentLocale = getLangFromUrl(Astro.originPathname);
+const t = useTranslations(currentLocale);
 
 const colors = ['red', 'blue', 'yellow'] as const;
 const color = colors[index % colors.length];
@@ -48,6 +49,6 @@ const { remarkPluginFrontmatter } = await render(post);
     </div>
 
     <div class="text-sm text-muted-foreground font-mono">
-        {remarkPluginFrontmatter.minutesRead}
+        {t('minute.read', { minutes: remarkPluginFrontmatter.minutesRead })}
     </div>
 </div>

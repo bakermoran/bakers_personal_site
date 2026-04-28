@@ -4,14 +4,17 @@ export const languages = {
 };
 
 export const defaultLang = "en";
+export type LangCodes = keyof typeof ui;
 
 export const ui = {
   en: {
+    "article.share": "Check out this blog post",
     "cmdk.navigation": "Navigation",
     "cmdk.placeholder": "Search...",
     "cmdk.projects": "Projects",
     "copied.description": "Link copied to clipboard",
     "copied.title": "Copied!",
+    "minute.read": "{minutes} min read",
     "nav.about": "About",
     "nav.back": "Back",
     "nav.home": "Home",
@@ -37,11 +40,13 @@ export const ui = {
     theme: "Theme",
   },
   fr: {
+    "article.share": "Découvrez cet article de blog",
     "cmdk.navigation": "Navigation",
     "cmdk.placeholder": "Rechercher...",
     "cmdk.projects": "Projets",
     "copied.description": "Lien copié dans le presse-papiers",
     "copied.title": "Copié !",
+    "minute.read": "{minutes} min de lecture",
     "nav.about": "À propos",
     "nav.back": "Retour",
     "nav.home": "Accueil",
