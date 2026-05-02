@@ -5,6 +5,9 @@ import { remarkReadingTime } from "./remark-reading-time.mjs";
 
 export default defineConfig({
   site: "https://bakermoran.io",
+  redirects: {
+    "/": "/en",
+  },
   integrations: [react()],
   vite: {
     plugins: [tailwindcss()],

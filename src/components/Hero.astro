@@ -2,10 +2,18 @@
 import { Image } from 'astro:assets';
 import profilePic from '../content/images/profile.png';
 import SocialLinks from './SocialLinks.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { twMerge } from 'tailwind-merge';
+import { getLangFromUrl } from '@/i18n/utils';
 
+const currentLocale = getLangFromUrl(Astro.originPathname);
+
+interface Props {
+  class?: string;
+}
 ---
 
-<div class="flex flex-col lg:flex-row items-start lg:items-center gap-8">
+<div class={twMerge("flex flex-col lg:flex-row items-start lg:items-center gap-8", Astro.props.class)}>
     <Image
         src={profilePic}
         alt="Profile"
@@ -16,7 +24,7 @@ import SocialLinks from './SocialLinks.astro';
     />
     <div class="flex flex-col gap-4">
         <div>
-            <a class="text-4xl font-bold mb-2" href="/about">Hi, I'm Baker!</a>
+            <a class="text-4xl font-bold mb-2" href={getRelativeLocaleUrl(currentLocale, "about")}>Hi, I'm Baker!</a>
             <p class="text-lg text-muted-foreground">Welcome to my personal blog where I share my thoughts on technology, programming, and more.</p>
         </div>
         <SocialLinks />

@@ -6,8 +6,9 @@ import LocaleSwitcher from '@/components/islands/LocaleSwitcher';
 import Logo from '../Logo.astro';
 import { Bars3Icon } from '@heroicons/react/24/outline'
 import PageLinks from '../PageLinks.astro';
-import { getLangFromUrl } from '@/i18n/utils';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import SearchBar from './SearchBar.astro';
+import CommandPaletteButton from '../CommandPaletteButton.astro';
 
 const languages = [
   { code: "en", name: "English" },
@@ -17,6 +18,7 @@ const languages = [
 const currentPath = Astro.originPathname
 const currentLocale = getLangFromUrl(Astro.originPathname);
 const pathWithoutLocale = currentPath.replace(/^\/(en|fr)/, '') || '/';
+const t = useTranslations(currentLocale);
 
 const localizedLinks = languages.map((lang) => ({
   ...lang,
@@ -49,16 +51,14 @@ const localizedLinks = languages.map((lang) => ({
       />
       <ThemeButton />
 
-      <Bars3Icon
-        id="mobile-nav-button"
-        className="h-5 w-5 inline md:hidden"
-      />
+      <CommandPaletteButton class="md:hidden" ariaLabel={t("openMenu")}>
+        <Bars3Icon className="h-5 w-5" />
+      </CommandPaletteButton>
     </div>
   </div>
 </header>
 
 <script>
-  import { openCommandPalette } from "@/scripts/openCommandPalette";
   const header = document.getElementById('site-header');
 
   let lastY = window.scrollY;
@@ -94,11 +94,4 @@ const localizedLinks = languages.map((lang) => ({
   };
 
   window.addEventListener('scroll', onScroll, { passive: true });
-
-  const mobileNavButton = document.getElementById('mobile-nav-button');
-  if (mobileNavButton) {
-    mobileNavButton.addEventListener('click', () => {
-      openCommandPalette();
-    });
-  }
 </script>

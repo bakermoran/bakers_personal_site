@@ -1,0 +1,45 @@
+---
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+
+interface Props {
+  class?: string;
+  ariaLabel?: string;
+}
+
+const t = useTranslations(getLangFromUrl(Astro.originPathname));
+
+const { class: className, ariaLabel = t("openCommandPalette") } = Astro.props;
+---
+
+<button
+  type="button"
+  data-command-palette-trigger
+  class={className}
+  aria-label={ariaLabel}
+>
+  <slot />
+</button>
+
+<script>
+  import { openCommandPalette } from "@/scripts/openCommandPalette";
+
+  function initButtons() {
+    const buttons = document.querySelectorAll<HTMLElement>('[data-command-palette-trigger]');
+    buttons.forEach((btn) => {
+      if (btn.dataset.searchBound === "true") return;
+      btn.dataset.searchBound = "true";
+
+      const placeholderEl = btn.querySelector<HTMLElement>("[data-command-palette-placeholder]");
+      if (placeholderEl && !navigator.platform.toLowerCase().includes("mac")) {
+        placeholderEl.textContent = placeholderEl.textContent?.replace("⌘ K", "Ctrl + K") ?? "";
+      }
+
+      btn.addEventListener("click", () => {
+        openCommandPalette();
+      });
+    });
+  }
+
+  initButtons();
+  document.addEventListener("astro:page-load", initButtons);
+</script>

@@ -6,9 +6,9 @@ import Main from '@/layouts/Main.astro';
 const { Content, frontmatter } = await import('@/content/about.md');
 ---
 
-<Main title={frontmatter.title}>
-    <Hero />
-    <Prose class="max-w-none">
+<Main title={frontmatter.title} size='none'>
+    <Hero class:list="max-w-prose" />
+    <Prose>
     <article class="mt-12">
         <Content />
     </article>

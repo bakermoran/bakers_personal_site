@@ -2,17 +2,17 @@
 - already read indication
 - standardize icon sizes
 - optimize images in markdown articles
-- separate content by lang
 - move about page to pure markdown
 - add fun components like accordion, use modals for stuff
 - custom right click menu
 - look really hard at mobile experience
 - hover card
-  <https://www.radix-ui.com/primitives/docs/components/navigation-menu> in bottom?
-  haptics?
-  scroll bar area needed?
-  consolidate icon providers
-  use radix themes?
-  consolidate button styles (scale 95 etc)
-  why small icons in article page - they shrink after refresh
-  home button on article page on mobile
+- <https://www.radix-ui.com/primitives/docs/components/navigation-menu> in bottom?
+- haptics?
+- scroll bar area needed?
+- consolidate icon providers
+- use radix themes?
+- consolidate button styles (scale 95 etc)
+- why small icons in article page - they shrink after refresh
+- movies and photos sections
+- separate content by lang

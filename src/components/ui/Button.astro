@@ -1,15 +1,15 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 
-interface Props extends HTMLAttributes<"button"> {
+export interface Props extends HTMLAttributes<"button"> {
   variant?: 'primary' | 'secondary';
   size?: 'sm' | 'md' | 'lg';
 }
 
 const { variant = 'primary', size = 'md', ...attrs } = Astro.props;
 
-const styles = {
-  button: "relative rounded-md p-2 transition-all rounded-sm active:scale-95",
+export const styles = {
+  button: "relative rounded-md p-2 transition-all rounded-sm active:scale-95 fit-content",
   variants: {
     primary: "text-muted-foreground hover:bg-accent hover:text-foreground",
     secondary: "text-foreground hover:bg-secondary hover:text-foreground",

@@ -9,7 +9,7 @@ interface Props {
 ---
 
 <Button
-  id="theme-toggle"
+  data-theme-toggle
   aria-label="Toggle theme"
   class={twMerge(`relative inline-flex h-10 w-10 items-center justify-center`, Astro.props.class)}
 >
@@ -25,14 +25,16 @@ interface Props {
 
 <script>
   function initThemeToggle() {
-    const btn = document.getElementById('theme-toggle');
-    if (!btn || btn.dataset.themeBound === 'true') return;
-
-    btn.dataset.themeBound = 'true';
-    btn.addEventListener('click', () => {
-      const nextTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
-      localStorage.setItem('theme', nextTheme);
-      document.documentElement.classList.toggle('dark', nextTheme === 'dark');
+    const buttons = document.querySelectorAll<HTMLElement>('[data-theme-toggle]');
+    buttons.forEach((btn) => {
+      if (btn.dataset.themeBound === 'true') return;
+      btn.dataset.themeBound = 'true';
+      btn.addEventListener('click', () => {
+        const nextTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+        localStorage.setItem('theme', nextTheme);
+        document.documentElement.classList.toggle('dark', nextTheme === 'dark');
+        (window as unknown as { __syncThemeColor?: () => void }).__syncThemeColor?.();
+      });
     });
   }
 

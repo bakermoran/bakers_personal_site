@@ -1,7 +1,7 @@
 ---
 import { twMerge } from 'tailwind-merge';
 
-interface Props {
+export interface Props {
     size?: 'small' | 'medium' | 'large' | 'none';
     class?: string;
 }
@@ -12,7 +12,7 @@ const sizeClasses = {
     small: 'max-w-xl',
     medium: 'max-w-3xl',
     large: 'max-w-4xl',
-    none: 'w-full',
+    none: 'w-full [&>*]:mx-auto',
 };
 ---
 

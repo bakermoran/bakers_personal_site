@@ -14,10 +14,13 @@ const { title } = Astro.props;
 ---
 <Layout title={title}>
   <ScrollProgress />
+  <!-- Desktop navigation -->
   <BackButton />
   <div class="hidden lg:block fixed top-4 left-26 z-20">
     <ThemeButton />
   </div>
+  <!--  -->
+
   <Container size="none">
     <slot />
     <PostCompleteCheck />

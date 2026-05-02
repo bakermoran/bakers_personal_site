@@ -14,6 +14,7 @@ interface Props {
 <nav class={`hidden items-center md:flex ${Astro.props.class}`} aria-label="Main navigation">
   {navigation.map((item) => (
     <Link
+      color="secondary"
       href={item.href}
     >
       {t(item.name)}

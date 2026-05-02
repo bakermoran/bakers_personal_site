@@ -30,7 +30,8 @@ export function useTranslations(lang: LangCodes) {
 }
 
 /**
- * Get the localized path for the given language and path.
+ * Get the localized path for the given language and path. For use client-side when you need to generate a link or redirect to a different page.
+ * For server-side links, use `getRelativeLocaleUrl` from `astro:i18n` instead.
  * @param lang The language to get the localized path for.
  * @param path The path to localize.
  */
