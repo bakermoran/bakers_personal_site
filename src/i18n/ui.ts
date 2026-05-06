@@ -14,6 +14,9 @@ export const ui = {
     "cmdk.projects": "Projects",
     "copied.description": "Link copied to clipboard",
     "copied.title": "Copied!",
+    "hero.greeting": "Hi, I'm Baker!",
+    "hero.subtitle":
+      "Welcome to my personal blog where I share my thoughts on technology, programming, and more.",
     "minute.read": "{minutes} min read",
     "nav.about": "About",
     "nav.back": "Back",
@@ -48,6 +51,9 @@ export const ui = {
     "cmdk.projects": "Projets",
     "copied.description": "Lien copié dans le presse-papiers",
     "copied.title": "Copié !",
+    "hero.greeting": "Salut, moi c'est Baker !",
+    "hero.subtitle":
+      "Bienvenue sur mon blog personnel où je partage mes réflexions sur la technologie, la programmation et plus encore.",
     "minute.read": "{minutes} min de lecture",
     "nav.about": "À propos",
     "nav.back": "Retour",

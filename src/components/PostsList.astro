@@ -1,14 +1,19 @@
 ---
 import { getCollection } from 'astro:content';
 import PostListItem from '@/components/PostListItem.astro';
+import { getLangFromUrl } from '@/i18n/utils';
 
 interface Props {
   limit?: number;
 }
 
 const { limit } = Astro.props;
+const currentLocale = getLangFromUrl(Astro.originPathname);
 
-const posts = await getCollection('blog', ({ data }) => !data.draft);
+const posts = await getCollection(
+  'blog',
+  ({ id, data }) => !data.draft && id.startsWith(`${currentLocale}/`),
+);
 ---
 
 <ul class="divide-y space-y-6">

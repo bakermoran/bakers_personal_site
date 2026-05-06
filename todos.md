@@ -15,4 +15,3 @@
 - consolidate button styles (scale 95 etc)
 - why small icons in article page - they shrink after refresh
 - movies and photos sections
-- separate content by lang

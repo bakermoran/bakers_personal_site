@@ -3,14 +3,18 @@ import Hero from '@/components/Hero.astro';
 import Prose from '@/components/Prose.astro';
 import Main from '@/layouts/Main.astro';
 
-const { Content, frontmatter } = await import('@/content/about.md');
+interface Props {
+  frontmatter: { title: string };
+}
+
+const { frontmatter } = Astro.props;
 ---
 
 <Main title={frontmatter.title} size='none'>
     <Hero class:list="max-w-prose" />
     <Prose>
     <article class="mt-12">
-        <Content />
+        <slot />
     </article>
     </Prose>
 </Main>
