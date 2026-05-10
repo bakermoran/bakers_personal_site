@@ -12,6 +12,7 @@ interface Props {
 }
 
 const { post, index } = Astro.props;
+const [lang, ...slug] = post.id.split('/');
 const currentLocale = getLangFromUrl(Astro.originPathname);
 const t = useTranslations(currentLocale);
 
@@ -29,7 +30,7 @@ const { remarkPluginFrontmatter } = await render(post);
     </div>
 
     <a
-        href={getRelativeLocaleUrl(currentLocale, `/blog/${post.data.id}`)}
+        href={getRelativeLocaleUrl(lang, `/blog/${slug.join('/')}`)}
         class="text-xl font-bold hover:underline flex items-center justify-between"
     >
         {post.data.title}

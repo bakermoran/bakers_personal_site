@@ -3,7 +3,6 @@ title: "Why you need to learn another language"
 date: "2021-10-20T01:30:29.685Z"
 template: "post"
 draft: false
-id: "why-you-need-to-learn-another-language"
 category: "Language"
 tags:
   - "Language"

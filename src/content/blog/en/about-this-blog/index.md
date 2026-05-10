@@ -3,7 +3,6 @@ title: "About this blog"
 date: "2021-07-19T15:41:47.827Z"
 template: "post"
 draft: false
-id: "about-this-blog"
 category: "About"
 tags: ["About"]
 description: "Why am I writing a blog?"

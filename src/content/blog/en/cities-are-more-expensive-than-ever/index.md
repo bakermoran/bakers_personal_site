@@ -1,15 +1,14 @@
 ---
-title: "Les villes sont plus chères que jamais"
+title: "Cities are more expensive than ever"
 date: "2022-07-01T01:45:28.791Z"
 template: "post"
 draft: false
-id: "les-villes-sont-plus-chères-que-jamais"
-category: "L'urbanisme"
+category: "Urbanism"
 tags:
-  - "L'urbanisme"
-  - "Le développement"
-  - "Le transport"
-description: "À l'ère du télétravail, les loyers en ville et les prix de l'immobilier dans les quartiers à densité moyenne sont plus élevés que jamais. Pourquoi les gens reviennent-ils s'installer en ville — et paient-ils des loyers élevés pour y vivre — alors même qu'ils n'en ont pas besoin ?"
+  - "Urbanism"
+  - "Development"
+  - "Transportation"
+description: "In the remote work era, rents in cities and housing prices in medium density neighborhoods are higher than ever. Why are people moving back and paying high rents to live in cities when they don't need to?"
 socialImage: "media/sf-from-hawk-hill.jpg"
 ---
 

@@ -45,10 +45,14 @@ export const CommandPaletteProvider: React.FC<ContextProps & React.PropsWithChil
   const [page, setPage] = useState<Page>("root");
   const [open, setOpen] = useState<boolean>(false);
   const [search, setSearch] = useState("");
+  const filteredPosts = rest.posts.filter((post) => {
+    const [postLang, _slug] = post.id.split("/");
+    return postLang === rest.lang;
+  });
 
   return (
     <CommandPaletteContext.Provider
-      value={{ page, setPage, open, setOpen, search, setSearch, ...rest }}
+      value={{ ...rest, page, setPage, open, setOpen, search, setSearch, posts: filteredPosts }}
     >
       {children}
     </CommandPaletteContext.Provider>

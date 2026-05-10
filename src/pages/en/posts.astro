@@ -1,7 +1,10 @@
 ---
 import PostsList from '@/components/PostsList.astro';
 import Main from '@/layouts/Main.astro';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+
+const t = useTranslations(getLangFromUrl(Astro.originPathname));
 ---
-<Main title="Posts">
+<Main title={t("nav.posts")}>
   <PostsList />
 </Main>

@@ -10,10 +10,14 @@ import ThemeButton from '@/components/ThemeButton.astro';
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
 
-  return posts.map(post => ({
-    params: { slug: post.data.id },
-    props: { post },
-  }));
+  return posts.map(post => {
+    const [lang, ...slug] = post.id.split('/');
+
+    return({
+      params: { lang, slug: slug.join('/') || undefined },
+      props: { post },
+    })
+  });
 }
 
 const { post } = Astro.props;

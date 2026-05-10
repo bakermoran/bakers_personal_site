@@ -3,7 +3,6 @@ title: "À propos de ce blog"
 date: "2021-07-19T15:41:47.827Z"
 template: "post"
 draft: false
-id: "à-propos-de-ce-blog"
 category: "À propos"
 tags: ["À propos"]
 description: "Pourquoi est-ce que j'écris un blog ?"

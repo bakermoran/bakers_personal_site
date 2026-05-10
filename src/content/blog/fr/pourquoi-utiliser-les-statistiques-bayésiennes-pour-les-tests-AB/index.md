@@ -3,7 +3,6 @@ title: Pourquoi utiliser les statistiques bayésiennes pour les tests A/B ?
 date: "2021-07-21T19:48:04.537Z"
 template: "post"
 draft: false
-id: "pourquoi-utiliser-les-statistiques-bayésiennes-pour-les-tests-AB"
 category: "Les statistiques"
 tags:
   - "Les statistiques"

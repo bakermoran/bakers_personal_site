@@ -15,11 +15,8 @@ interface Props {
 const { title } = Astro.props;
 const currentLocale = getLangFromUrl(Astro.originPathname);
 
-const posts = (await getCollection('blog', ({ data }) => !data.draft))
-              .map(({ data: { id, title } }) => ({
-                id, title
-              }))
-              .reverse();
+const posts = await getCollection('blog', ({ data }) => !data.draft)
+const postInfo = posts.map(({ id, data: { title } }) => ({ id, title })).reverse();
 ---
 
 <html lang={currentLocale}>
@@ -57,6 +54,6 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
     </main>
     <Footer />
     <Toast client:load />
-    <CommandPalette client:only="react" posts={posts} lang={currentLocale} />
+    <CommandPalette client:only="react" posts={postInfo} lang={currentLocale} />
   </body>
 </html>

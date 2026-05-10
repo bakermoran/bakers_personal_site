@@ -3,7 +3,6 @@ title: "Pourquoi vous devez apprendre une autre langue"
 date: "2021-10-20T01:30:29.685Z"
 template: "post"
 draft: false
-id: "pourquoi-vous-devez-apprendre-une-autre-langue"
 category: "La Langue"
 tags:
   - "La Langue"

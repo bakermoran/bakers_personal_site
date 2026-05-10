@@ -24,11 +24,15 @@ export const CommandPalettePosts = () => {
     {
       heading: t("nav.posts"),
       id: "articles",
-      items: posts.map(({ title, id }) => ({
-        id: title.toLowerCase(),
-        children: title,
-        href: getLocalizedPath(lang, `/blog/${id}`),
-      })),
+      items: posts.map(({ title, id }) => {
+        const [lang, ...slug] = id.split("/");
+
+        return {
+          id: title.toLowerCase(),
+          children: title,
+          href: `/${lang}/blog/${slug.join("/")}`,
+        };
+      }),
     },
   ];
 
