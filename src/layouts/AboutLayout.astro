@@ -4,13 +4,13 @@ import Prose from '@/components/Prose.astro';
 import Main from '@/layouts/Main.astro';
 
 interface Props {
-  frontmatter: { title: string };
+  title: string;
 }
 
-const { frontmatter } = Astro.props;
+const { title } = Astro.props;
 ---
 
-<Main title={frontmatter.title} size='none'>
+<Main title={title} size='none'>
     <Hero class:list="max-w-prose" />
     <Prose>
     <article class="mt-12">

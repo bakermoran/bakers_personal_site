@@ -1,0 +1,24 @@
+---
+import AboutLayout from '@/layouts/AboutLayout.astro';
+import { getCollection } from 'astro:content';
+import { render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('about');
+
+  return posts.map(post => {
+    const [lang, ...slug] = post.id.split('/');
+
+    return({
+      params: { lang, slug: slug.join('/') || undefined },
+      props: { post },
+    })
+  });
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+<AboutLayout title={post.data.title}>
+  <Content />
+</AboutLayout>

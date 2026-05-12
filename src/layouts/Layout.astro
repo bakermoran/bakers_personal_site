@@ -30,7 +30,7 @@ const postInfo = posts.map(({ id, data: { title } }) => ({ id, title })).reverse
       rel="alternate"
       type="application/rss+xml"
       title="Baker Moran RSS Feed"
-      href={new URL("rss.xml", Astro.site)}
+      href={new URL(`${currentLocale}/rss.xml`, Astro.site)}
     />
     <ClientRouter />
     <script is:inline>

@@ -2,9 +2,13 @@
 import Error from '@/components/Error.astro';
 import Main from '@/layouts/Main.astro';
 import Link from '@/components/ui/Link.astro';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+
+const lang = getLangFromUrl(Astro.originPathname);
+const t = useTranslations(lang)
 ---
-<Main title="Home">
-  <Error title="404 - Page Not Found" description="The page you are looking for does not exist.">
-      <Link href="/" class="text-mcm-blue">Go back home</Link>
+<Main title={t("404.title")}>
+  <Error title={t("404.title")} description={t("404.description")}>
+      <Link href="/" class="text-mcm-blue">{t("404.cta")}</Link>
   </Error>
 </Main>

@@ -45,6 +45,9 @@ export const ui = {
     selectLanguage: "Select language",
     shareOn: "Share on {platform}",
     theme: "Theme",
+    "404.title": "404 - Page Not Found",
+    "404.description": "Sorry, the page you're looking for doesn't exist.",
+    "404.cta": "Go back home",
   },
   fr: {
     "article.share": "Découvrez cet article de blog",
@@ -84,5 +87,8 @@ export const ui = {
     selectLanguage: "Sélectionner la langue",
     shareOn: "Partager sur {platform}",
     theme: "Thème",
+    "404.title": "404 - Page non trouvée",
+    "404.description": "Désolé, la page que vous recherchez n'existe pas.",
+    "404.cta": "Retour à l'accueil",
   },
 } as const;

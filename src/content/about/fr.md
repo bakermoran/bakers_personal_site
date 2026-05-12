@@ -1,5 +1,4 @@
 ---
-layout: "@/layouts/AboutLayout.astro"
 title: "Sur moi"
 socialImage: "./photo.jpg"
 ---
