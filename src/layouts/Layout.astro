@@ -53,7 +53,7 @@ const postInfo = posts.map(({ id, data: { title } }) => ({ id, title })).reverse
       <slot />
     </main>
     <Footer />
-    <Toast client:load />
-    <CommandPalette client:only="react" posts={postInfo} lang={currentLocale} />
+    <Toast client:idle />
+    <CommandPalette client:idle posts={postInfo} lang={currentLocale} />
   </body>
 </html>

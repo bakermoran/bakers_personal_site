@@ -1,4 +1,4 @@
-import CommandPaletteBase, { useHandleOpenCommandPalette } from "react-cmdk";
+import CommandPaletteBaseImport, { useHandleOpenCommandPalette } from "react-cmdk";
 import { useEffect } from "react";
 import { useTranslations } from "@/i18n/utils";
 import { CommandPaletteRoot } from "./CommandPaletteRoot";
@@ -9,6 +9,8 @@ import { useCommandPaletteContext } from "./Context";
 import { CommandPaletteContact } from "./CommandPaletteContact";
 import { CommandPalettePosts } from "./CommandPalettePosts";
 import { CommandPaletteLang } from "./CommandPaletteLang";
+
+const CommandPaletteBase = (CommandPaletteBaseImport as any).default ?? CommandPaletteBaseImport;
 
 export const CommandPalette = () => {
   const { page, setPage, open, setOpen, search, setSearch, lang } = useCommandPaletteContext();

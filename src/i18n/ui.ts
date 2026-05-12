@@ -42,6 +42,8 @@ export const ui = {
     readMore: "Read more",
     recentPosts: "Recent posts",
     search: "Search",
+    selectLanguage: "Select language",
+    shareOn: "Share on {platform}",
     theme: "Theme",
   },
   fr: {
@@ -79,6 +81,8 @@ export const ui = {
     readMore: "Lire la suite",
     recentPosts: "Articles récents",
     search: "Rechercher",
+    selectLanguage: "Sélectionner la langue",
+    shareOn: "Partager sur {platform}",
     theme: "Thème",
   },
 } as const;

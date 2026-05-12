@@ -1,23 +1,23 @@
 ---
-import { icon } from "@fortawesome/fontawesome-svg-core";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import githubSvg from "@/assets/icons/github.svg?raw";
+import linkedinSvg from "@/assets/icons/linkedin.svg?raw";
+import envelopeSvg from "@/assets/icons/envelope.svg?raw";
 
 const links = [
     {
         name: 'GitHub',
         url: 'https://github.com/bakermoran',
-        svg: icon(faGithub).html[0]
+        svg: githubSvg
     },
     {
         name: 'LinkedIn',
         url: 'https://www.linkedin.com/in/baker-moran-a47b17114/',
-        svg: icon(faLinkedin).html[0]
+        svg: linkedinSvg
     },
     {
         name: 'Email',
         url: 'mailto:bamoran99@gmail.com',
-        svg: icon(faEnvelope).html[0]
+        svg: envelopeSvg
     }
 ];
 ---

@@ -1,7 +1,9 @@
 ---
-import { icon } from "@fortawesome/fontawesome-svg-core";
-import { faFacebook, faLinkedin, faTwitter } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope, faComment } from "@fortawesome/free-solid-svg-icons";
+import facebookSvg from "@/assets/icons/facebook.svg?raw";
+import linkedinSvg from "@/assets/icons/linkedin.svg?raw";
+import twitterSvg from "@/assets/icons/twitter.svg?raw";
+import envelopeSvg from "@/assets/icons/envelope.svg?raw";
+import commentSvg from "@/assets/icons/comment.svg?raw";
 import CopyButton from "./CopyButton.astro";
 import { useTranslations, getLangFromUrl } from "@/i18n/utils";
 
@@ -11,40 +13,45 @@ const t = useTranslations(currentLocale);
 
 const links = [
     {
+        "aria-label": t("shareOn", { platform: "Facebook" }),
         name: 'Facebook',
+        svg: facebookSvg,
         url: `https://www.facebook.com/sharer/sharer.php?u=${currentPath}`,
-        svg: icon(faFacebook).html[0]
     },
     {
+        "aria-label": t("shareOn", { platform: "LinkedIn" }),
         name: 'LinkedIn',
+        svg: linkedinSvg,
         url: `https://www.linkedin.com/shareArticle?mini=true&url=${currentPath}`,
-        svg: icon(faLinkedin).html[0]
     },
     {
+        "aria-label": t("shareOn", { platform: "Twitter" }),
         name: 'Twitter',
+        svg: twitterSvg,
         url: `https://twitter.com/intent/tweet?url=${currentPath}`,
-        svg: icon(faTwitter).html[0]
     },
     {
+        "aria-label": t("shareOn", { platform: "Email" }),
         name: 'Email',
+        svg: envelopeSvg,
         url: `mailto:?subject=${t("article.share")}&body=${currentPath}`,
-        svg: icon(faEnvelope).html[0]
     },
     {
+        "aria-label": t("shareOn", { platform: "SMS" }),
         name: 'SMS',
+        svg: commentSvg,
         url: `sms:?&body=${t("article.share")}: ${currentPath}`,
-        svg: icon(faComment).html[0]
     }
 ];
 ---
 
 <div class="flex items-center gap-4">
-    {links.map(({ url, svg, name }) => (
+    {links.map(({ url, svg, "aria-label": ariaLabel }) => (
         <a
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={name}
+            aria-label={ariaLabel}
             class="text-muted-foreground hover:text-primary transition-colors duration-200 [&>svg]:h-6 [&>svg]:w-6 active:scale-95"
         >
             <Fragment set:html={svg} />
