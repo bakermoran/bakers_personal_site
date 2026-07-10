@@ -8,6 +8,9 @@ export type LangCodes = keyof typeof ui;
 
 export const ui = {
   en: {
+    "404.title": "404 - Page Not Found",
+    "404.description": "Sorry, the page you're looking for doesn't exist.",
+    "404.cta": "Go back home",
     "article.share": "Check out this blog post",
     "cmdk.navigation": "Navigation",
     "cmdk.placeholder": "Search...",
@@ -38,6 +41,7 @@ export const ui = {
     name: "English",
     openCommandPalette: "Open command palette",
     openMenu: "Open menu",
+    other: "Other",
     pickLanguage: "Pick language",
     readMore: "Read more",
     recentPosts: "Recent posts",
@@ -45,11 +49,11 @@ export const ui = {
     selectLanguage: "Select language",
     shareOn: "Share on {platform}",
     theme: "Theme",
-    "404.title": "404 - Page Not Found",
-    "404.description": "Sorry, the page you're looking for doesn't exist.",
-    "404.cta": "Go back home",
   },
   fr: {
+    "404.cta": "Retour à l'accueil",
+    "404.description": "Désolé, la page que vous recherchez n'existe pas.",
+    "404.title": "404 - Page non trouvée",
     "article.share": "Découvrez cet article de blog",
     "cmdk.navigation": "Navigation",
     "cmdk.placeholder": "Rechercher...",
@@ -80,6 +84,7 @@ export const ui = {
     name: "Français",
     openCommandPalette: "Ouvrir la palette de commandes",
     openMenu: "Ouvrir le menu",
+    other: "Autre",
     pickLanguage: "Choisir la langue",
     readMore: "Lire la suite",
     recentPosts: "Articles récents",
@@ -87,8 +92,5 @@ export const ui = {
     selectLanguage: "Sélectionner la langue",
     shareOn: "Partager sur {platform}",
     theme: "Thème",
-    "404.title": "404 - Page non trouvée",
-    "404.description": "Désolé, la page que vous recherchez n'existe pas.",
-    "404.cta": "Retour à l'accueil",
   },
 } as const;

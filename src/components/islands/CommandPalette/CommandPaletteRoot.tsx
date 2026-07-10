@@ -59,6 +59,7 @@ export const CommandPaletteRoot = () => {
     },
     {
       id: "other",
+      heading: t("other"),
       items: [
         {
           id: "contactLinks",
