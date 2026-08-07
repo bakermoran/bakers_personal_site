@@ -5,12 +5,13 @@ import Main from '@/layouts/Main.astro';
 
 interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
-<Main title={title} size='none'>
+<Main title={title} description={description} size='none'>
     <Hero class:list="max-w-prose" />
     <Prose>
     <article class="mt-12">

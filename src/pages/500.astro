@@ -9,6 +9,6 @@ interface Props {
 const { error } = Astro.props;
 ---
 
-<Main title="Home">
+<Main title="Home" description="An unexpected error occurred. Please try again later.">
   <Error error={error} title="500 - Internal Server Error" description="An unexpected error occurred. Please try again later." />
 </Main>

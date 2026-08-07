@@ -20,6 +20,12 @@ export const ui = {
     "hero.greeting": "Hi, I'm Baker!",
     "hero.subtitle":
       "Welcome to my personal blog where I share my thoughts on technology, programming, and more.",
+    "meta.about":
+      "Learn more about Baker Moran — a software engineer writing about technology, programming, statistics, and more.",
+    "meta.default":
+      "The personal blog of Baker Moran, sharing thoughts on technology, programming, statistics, and more.",
+    "meta.posts":
+      "Browse all of Baker Moran's blog posts on technology, programming, statistics, and language.",
     "minute.read": "{minutes} min read",
     "nav.about": "About",
     "nav.back": "Back",
@@ -43,6 +49,7 @@ export const ui = {
     openMenu: "Open menu",
     other: "Other",
     pickLanguage: "Pick language",
+    readAllPosts: "Read all posts",
     readMore: "Read more",
     recentPosts: "Recent posts",
     search: "Search",
@@ -63,6 +70,12 @@ export const ui = {
     "hero.greeting": "Salut, moi c'est Baker !",
     "hero.subtitle":
       "Bienvenue sur mon blog personnel où je partage mes réflexions sur la technologie, la programmation et plus encore.",
+    "meta.about":
+      "En savoir plus sur Baker Moran — un ingénieur logiciel qui écrit sur la technologie, la programmation, les statistiques et plus encore.",
+    "meta.default":
+      "Le blog personnel de Baker Moran, partageant des réflexions sur la technologie, la programmation, les statistiques et plus encore.",
+    "meta.posts":
+      "Parcourez tous les articles de blog de Baker Moran sur la technologie, la programmation, les statistiques et les langues.",
     "minute.read": "{minutes} min de lecture",
     "nav.about": "À propos",
     "nav.back": "Retour",
@@ -86,6 +99,7 @@ export const ui = {
     openMenu: "Ouvrir le menu",
     other: "Autre",
     pickLanguage: "Choisir la langue",
+    readAllPosts: "Lire tous les articles",
     readMore: "Lire la suite",
     recentPosts: "Articles récents",
     search: "Rechercher",

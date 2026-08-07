@@ -5,11 +5,12 @@ import Layout from './Layout.astro';
 
 interface Props extends ContainerProps {
   title: string;
+  description?: string;
 }
 
-const { title, size, class: className } = Astro.props;
+const { title, description, size, class: className } = Astro.props;
 ---
-<Layout title={title}>
+<Layout title={title} description={description}>
   <Header />
   <Container size={size} class={className}>
     <slot />

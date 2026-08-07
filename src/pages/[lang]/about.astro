@@ -2,6 +2,7 @@
 import AboutLayout from '@/layouts/AboutLayout.astro';
 import { getCollection } from 'astro:content';
 import { render } from 'astro:content';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
 export async function getStaticPaths() {
   const posts = await getCollection('about');
@@ -18,7 +19,8 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+const t = useTranslations(getLangFromUrl(Astro.originPathname));
 ---
-<AboutLayout title={post.data.title}>
+<AboutLayout title={post.data.title} description={t('meta.about')}>
   <Content />
 </AboutLayout>

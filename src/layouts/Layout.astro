@@ -4,16 +4,18 @@ import { Font } from "astro:assets";
 import Footer from '@/components/Footer.astro';
 import Toast from '@/components/islands/Toast';
 import { CommandPalette } from '@/components/islands/CommandPalette';
-import { getLangFromUrl } from '@/i18n/utils';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import { ClientRouter } from "astro:transitions";
 import { getCollection } from 'astro:content';
 
 interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
 const currentLocale = getLangFromUrl(Astro.originPathname);
+const t = useTranslations(currentLocale);
+const { title, description = t('meta.default') } = Astro.props;
 
 const posts = await getCollection('blog', ({ data }) => !data.draft)
 const postInfo = posts.map(({ id, data: { title } }) => ({ id, title })).reverse();
@@ -24,6 +26,7 @@ const postInfo = posts.map(({ id, data: { title } }) => ({ id, title })).reverse
     <title>{title} | Baker Moran</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
     <Font cssVariable="--font-noto-serif" />
     <Font cssVariable="--font-noto-sans-mono" />
     <link

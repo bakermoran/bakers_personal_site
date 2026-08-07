@@ -36,9 +36,8 @@ coverage
 # dependency directory
 node_modules
 
-# only apps should have lockfiles
+# bun.lock is committed for reproducible Netlify deploys
 npm-shrinkwrap.json
-bun.lock
 .claude
 
 # build output
