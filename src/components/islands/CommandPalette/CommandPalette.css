@@ -1,0 +1,133 @@
+/* react-cmdk theme overrides — match site design tokens (see global.css). */
+/* Library uses @media (prefers-color-scheme: dark); we use a `.dark` class on
+   <html>. CSS variables in :root / .dark already flip per the site's toggle,
+   so we just point overrides at those tokens and rely on source order to win
+   against the bundled cmdk.css. */
+
+/* Lift palette stacking context above the sticky header (z-50) so the
+   backdrop blur covers it instead of rendering behind. */
+.command-palette {
+  z-index: 60;
+}
+
+/* Backdrop */
+.command-palette .fixed.inset-0.bg-gray-900 {
+  background-color: oklch(0% 0 0 / 0.18);
+  backdrop-filter: blur(var(--blur-xs));
+}
+.command-palette .bg-opacity-80 {
+  --tw-bg-opacity: 0.80;
+}
+
+/* Panel surface */
+.command-palette .bg-white,
+.command-palette .dark\:bg-gray-900 {
+  background-color: var(--popover);
+  color: var(--popover-foreground);
+}
+
+.command-palette .rounded-lg {
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.command-palette .rounded-md {
+  border-radius: var(--radius);
+}
+
+.command-palette .max-w-xl {
+  max-width: 36rem;
+}
+
+.command-palette .shadow-lg {
+  box-shadow:
+    0 12px 28px -8px oklch(0 0 0 / 0.25),
+    0 4px 10px -4px oklch(0 0 0 / 0.15);
+}
+
+/* Divider between search and list */
+.command-palette .divide-y > :not([hidden]) ~ :not([hidden]),
+.command-palette .dark\:divide-gray-800 > :not([hidden]) ~ :not([hidden]) {
+  border-color: var(--border);
+}
+
+/* Search row */
+.command-palette #command-palette-search-input {
+  font-family: var(--font-serif);
+  color: var(--foreground);
+  font-size: 1rem;
+  background: transparent;
+}
+.command-palette #command-palette-search-input::placeholder,
+.command-palette .placeholder-gray-500::placeholder {
+  color: var(--muted-foreground);
+}
+
+/* Search icon + clear button */
+.command-palette .text-gray-400,
+.command-palette .text-gray-300,
+.command-palette .dark\:text-gray-600 {
+  color: var(--muted-foreground);
+}
+.command-palette .hover\:text-gray-500:hover,
+.command-palette .dark\:hover\:text-gray-300:hover {
+  color: var(--foreground);
+}
+
+/* Section heading */
+.command-palette h4.text-gray-500 {
+  color: var(--muted-foreground);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding-top: 0.25rem;
+}
+
+/* List items */
+.command-palette .command-palette-list-item {
+  color: var(--popover-foreground);
+  font-family: var(--font-serif);
+  border-radius: var(--radius);
+  transition:
+    background-color 120ms ease,
+    color 120ms ease;
+}
+
+.command-palette .command-palette-list-item .dark\:text-white {
+  color: inherit;
+}
+
+/* Keyboard-selected (lib applies bg-gray-200/50 dark:bg-gray-800) */
+.command-palette .command-palette-list-item.bg-gray-200\/50,
+.command-palette .command-palette-list-item.dark\:bg-gray-800 {
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+}
+
+/* Hover */
+.command-palette .command-palette-list-item:hover,
+.command-palette .hover\:bg-gray-100:hover,
+.command-palette .dark\:hover\:bg-gray-800:hover {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+}
+
+/* Type tag (Link / Action) */
+.command-palette .command-palette-list-item span.text-gray-500.text-sm {
+  color: var(--muted-foreground);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.command-palette .command-palette-list-item:hover span.text-gray-500.text-sm {
+  color: var(--accent-foreground);
+  opacity: 0.8;
+}
+
+/* Focus ring */
+.command-palette .focus\:ring-gray-300:focus {
+  --tw-ring-color: var(--ring);
+}

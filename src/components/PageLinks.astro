@@ -1,0 +1,23 @@
+---
+import Link from '@/components/ui/Link.astro';
+import { navigation } from '@/constants';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const currentLocale = getLangFromUrl(Astro.originPathname);
+const t = useTranslations(currentLocale);
+
+interface Props {
+  class?: string;
+}
+---
+
+<nav class={`hidden items-center md:flex ${Astro.props.class}`} aria-label="Main navigation">
+  {navigation.map((item) => (
+    <Link
+      color="secondary"
+      href={item.href}
+    >
+      {t(item.name)}
+    </Link>
+  ))}
+</nav>

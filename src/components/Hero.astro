@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets';
+import profilePic from '../content/images/profile.png';
+import SocialLinks from './SocialLinks.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { twMerge } from 'tailwind-merge';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+
+const currentLocale = getLangFromUrl(Astro.originPathname);
+const t = useTranslations(currentLocale);
+
+interface Props {
+  class?: string;
+}
+---
+
+<div class={twMerge("flex flex-col lg:flex-row items-start lg:items-center gap-8", Astro.props.class)}>
+    <Image
+        src={profilePic}
+        alt="Profile"
+        priority={true}
+        width={200}
+        height={200}
+        class="rounded-lg"
+    />
+    <div class="flex flex-col gap-4">
+        <div>
+            <a class="text-4xl font-bold mb-2" href={getRelativeLocaleUrl(currentLocale, "about")}>{t('hero.greeting')}</a>
+            <p class="text-lg text-muted-foreground">{t('hero.subtitle')}</p>
+        </div>
+        <SocialLinks />
+    </div>
+</div>

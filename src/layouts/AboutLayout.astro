@@ -1,0 +1,21 @@
+---
+import Hero from '@/components/Hero.astro';
+import Prose from '@/components/Prose.astro';
+import Main from '@/layouts/Main.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<Main title={title} description={description} size='none'>
+    <Hero class:list="max-w-prose" />
+    <Prose>
+    <article class="mt-12">
+        <slot />
+    </article>
+    </Prose>
+</Main>

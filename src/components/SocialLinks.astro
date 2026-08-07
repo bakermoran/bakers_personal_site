@@ -1,0 +1,37 @@
+---
+import githubSvg from "@/assets/icons/github.svg?raw";
+import linkedinSvg from "@/assets/icons/linkedin.svg?raw";
+import envelopeSvg from "@/assets/icons/envelope.svg?raw";
+
+const links = [
+    {
+        name: 'GitHub',
+        url: 'https://github.com/bakermoran',
+        svg: githubSvg
+    },
+    {
+        name: 'LinkedIn',
+        url: 'https://www.linkedin.com/in/baker-moran-a47b17114/',
+        svg: linkedinSvg
+    },
+    {
+        name: 'Email',
+        url: 'mailto:bamoran99@gmail.com',
+        svg: envelopeSvg
+    }
+];
+---
+
+<div class="flex items-center gap-4">
+    {links.map(({ url, svg, name }) => (
+        <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={name}
+            class="text-muted-foreground active:scale-95 hover:text-primary transition-all duration-200 [&>svg]:h-6 [&>svg]:w-6"
+        >
+            <Fragment set:html={svg} />
+        </a>
+    ))}
+</div>

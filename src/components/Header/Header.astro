@@ -1,0 +1,97 @@
+---
+import ThemeButton from '../ThemeButton.astro';
+import Link from '@/components/ui/Link.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import LocaleSwitcher from '@/components/islands/LocaleSwitcher';
+import Logo from '../Logo.astro';
+import { Bars3Icon } from '@heroicons/react/24/outline'
+import PageLinks from '../PageLinks.astro';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import SearchBar from './SearchBar.astro';
+import CommandPaletteButton from '../CommandPaletteButton.astro';
+
+const languages = [
+  { code: "en", name: "English" },
+  { code: "fr", name: "Français" }
+]
+
+const currentPath = Astro.originPathname
+const currentLocale = getLangFromUrl(Astro.originPathname);
+const pathWithoutLocale = currentPath.replace(/^\/(en|fr)/, '') || '/';
+const t = useTranslations(currentLocale);
+
+const localizedLinks = languages.map((lang) => ({
+  ...lang,
+  href: getRelativeLocaleUrl(lang.code, pathWithoutLocale),
+}));
+---
+
+<header id='site-header' class="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60 transition-transform duration-300">
+  <div class="flex h-16 items-center px-6">
+
+    <!-- Logo / Name -->
+    <div class="flex flex-1 items-center justify-start">
+      <Link href="/">
+        <Logo />
+        <span class="text-lg font-medium tracking-tight text-foreground">Baker Moran</span>
+      </Link>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <PageLinks class:list="gap-8" />
+
+    <!-- Right side controls -->
+    <div class="flex flex-1 items-center justify-end gap-2">
+      <SearchBar />
+
+      <LocaleSwitcher
+        client:load
+        currentLocale={currentLocale}
+        localizedLinks={localizedLinks}
+      />
+      <ThemeButton />
+
+      <CommandPaletteButton class="md:hidden" ariaLabel={t("openMenu")}>
+        <Bars3Icon className="h-5 w-5" />
+      </CommandPaletteButton>
+    </div>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('site-header');
+
+  let lastY = window.scrollY;
+  let ticking = false;
+
+  const updateHeader = () => {
+    const currentY = window.scrollY;
+    const scrollingDown = currentY > lastY;
+    const scrollingUp = currentY < lastY;
+
+    if (currentY <= 8) {
+      header?.classList.remove('-translate-y-full');
+      lastY = currentY;
+      ticking = false;
+      return;
+    }
+
+    if (scrollingDown && currentY > 80) {
+      header?.classList.add('-translate-y-full');
+    } else if (scrollingUp) {
+      header?.classList.remove('-translate-y-full');
+    }
+
+    lastY = currentY;
+    ticking = false;
+  };
+
+  const onScroll = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateHeader);
+      ticking = true;
+    }
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+</script>

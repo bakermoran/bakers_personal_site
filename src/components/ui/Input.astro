@@ -1,0 +1,13 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { twMerge } from 'tailwind-merge';
+
+interface Props extends HTMLAttributes<"input"> {}
+
+const { class: className, ...attrs } = Astro.props;
+---
+
+<input
+    class={twMerge('rounded-md', className)}
+    {...attrs}
+/>

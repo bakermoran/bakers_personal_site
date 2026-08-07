@@ -1,0 +1,12 @@
+---
+interface Props {
+  class?: string;
+}
+---
+<article
+  class={`prose prose-zinc dark:prose-invert
+  prose-h1:font-bold prose-h1:text-xl
+  prose-a:text-mcm-blue prose-p:text-justify prose-img:rounded-md
+  prose-headings:underline ${Astro.props.class || ''}`}>
+  <slot />
+</article>

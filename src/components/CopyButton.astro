@@ -1,0 +1,48 @@
+---
+import copyHtml from "@/assets/icons/copy.svg?raw";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+interface Props {
+  target: string;
+}
+
+const { target } = Astro.props;
+const currentLocale = getLangFromUrl(Astro.originPathname);
+const t = useTranslations(currentLocale);
+
+const copiedTitle = t("copied.title");
+const copiedDescription = t("copied.description");
+
+---
+
+<button
+  id="copy-link"
+  type="button"
+  aria-label="Copy link"
+  class="text-muted-foreground hover:text-primary transition-all duration-200 cursor-pointer active:scale-95"
+>
+  <span class="copy-icon [&>svg]:h-6 [&>svg]:w-6 [&>svg]:fill-current">
+    <Fragment set:html={copyHtml} />
+  </span>
+</button>
+
+<script define:vars={{ target, copiedTitle, copiedDescription }}>
+  const button = document.getElementById("copy-link");
+
+  if (button) {
+    button.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(target);
+
+        window.dispatchEvent(
+          new CustomEvent("show-toast", {
+            detail: {
+              title: copiedTitle,
+              description: copiedDescription,
+            },
+          })
+        );
+      } catch {}
+    });
+  }
+</script>

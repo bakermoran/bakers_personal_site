@@ -1,0 +1,18 @@
+---
+import Header from '@/components/Header/Header.astro';
+import Container, { type Props as ContainerProps } from '@/components/Container.astro';
+import Layout from './Layout.astro';
+
+interface Props extends ContainerProps {
+  title: string;
+  description?: string;
+}
+
+const { title, description, size, class: className } = Astro.props;
+---
+<Layout title={title} description={description}>
+  <Header />
+  <Container size={size} class={className}>
+    <slot />
+  </Container>
+</Layout>

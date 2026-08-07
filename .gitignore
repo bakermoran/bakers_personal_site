@@ -12,8 +12,8 @@ pids
 .idea
 .vscode
 
-# build
-public
+.env
+.env.production
 
 # cache
 .cache
@@ -36,6 +36,11 @@ coverage
 # dependency directory
 node_modules
 
-# only apps should have lockfiles
+# bun.lock is committed for reproducible Netlify deploys
 npm-shrinkwrap.json
-yarn.lock
+.claude
+
+# build output
+dist/
+# generated types
+.astro/

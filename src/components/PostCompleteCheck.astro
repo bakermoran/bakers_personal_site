@@ -1,0 +1,104 @@
+---
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+
+const currentLocale = getLangFromUrl(Astro.originPathname);
+const t = useTranslations(currentLocale);
+
+const { text = t("post.complete") } = Astro.props;
+---
+
+<div
+  data-post-complete
+  class="grid translate-y-2 justify-items-center gap-3 px-4 pt-8 text-center opacity-0 transition duration-200 ease-out data-[visible=true]:translate-y-0 data-[visible=true]:opacity-100 motion-reduce:translate-y-0 motion-reduce:opacity-100"
+>
+  <div
+    class="grid size-16 place-items-center motion-reduce:scale-100 data-[visible=true]:animate-[check-pop_380ms_ease-out_120ms_both]"
+    aria-hidden="true"
+  >
+    <svg viewBox="0 0 52 52" class="block size-16">
+      <circle
+        cx="26"
+        cy="26"
+        r="24"
+        class="checkmark-circle fill-none stroke-current stroke-[2.5] [stroke-linecap:round] [stroke-linejoin:round]"
+      />
+      <path
+        d="M14 27l7 7 17-17"
+        class="checkmark-check fill-none stroke-current stroke-[2.5] [stroke-linecap:round] [stroke-linejoin:round]"
+      />
+    </svg>
+  </div>
+
+  <p class="m-0 text-sm text-muted-foreground">
+    {text}
+  </p>
+</div>
+
+<script>
+  const el = document.querySelector("[data-post-complete]");
+  if (el) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.setAttribute("data-visible", "true");
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.35 }
+    );
+
+    observer.observe(el);
+  }
+</script>
+
+<style>
+  .checkmark-circle {
+    stroke-dasharray: 151;
+    stroke-dashoffset: 151;
+  }
+
+  .checkmark-check {
+    stroke-dasharray: 36;
+    stroke-dashoffset: 36;
+  }
+
+  [data-post-complete][data-visible="true"] .checkmark-circle {
+    animation: draw-circle 700ms ease-out forwards;
+  }
+
+  [data-post-complete][data-visible="true"] .checkmark-check {
+    animation: draw-check 420ms 320ms ease-out forwards;
+  }
+
+  @keyframes draw-circle {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes draw-check {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes check-pop {
+    0% {
+      transform: scale(0.9);
+    }
+    65% {
+      transform: scale(1.08);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .checkmark-circle,
+    .checkmark-check {
+      animation: none !important;
+      stroke-dashoffset: 0;
+    }
+  }
+</style>

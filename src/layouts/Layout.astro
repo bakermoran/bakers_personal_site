@@ -1,0 +1,62 @@
+---
+import '@/styles/global.css'
+import { Font } from "astro:assets";
+import Footer from '@/components/Footer.astro';
+import Toast from '@/components/islands/Toast';
+import { CommandPalette } from '@/components/islands/CommandPalette';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import { ClientRouter } from "astro:transitions";
+import { getCollection } from 'astro:content';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const currentLocale = getLangFromUrl(Astro.originPathname);
+const t = useTranslations(currentLocale);
+const { title, description = t('meta.default') } = Astro.props;
+
+const posts = await getCollection('blog', ({ data }) => !data.draft)
+const postInfo = posts.map(({ id, data: { title } }) => ({ id, title })).reverse();
+---
+
+<html lang={currentLocale}>
+  <head>
+    <title>{title} | Baker Moran</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <Font cssVariable="--font-noto-serif" />
+    <Font cssVariable="--font-noto-sans-mono" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Baker Moran RSS Feed"
+      href={new URL(`${currentLocale}/rss.xml`, Astro.site)}
+    />
+    <ClientRouter />
+    <script is:inline>
+      function applyTheme() {
+        var saved = localStorage.getItem("theme");
+        var theme = saved === "dark" || saved === "light"
+          ? saved
+          : window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+        document.documentElement.classList.toggle("dark", theme === "dark");
+      }
+
+      applyTheme();
+      document.addEventListener("astro:after-swap", applyTheme);
+    </script>
+  </head>
+  <body class="flex flex-col min-h-screen h-full">
+    <main class="grow">
+      <slot />
+    </main>
+    <Footer />
+    <Toast client:idle />
+    <CommandPalette client:idle posts={postInfo} lang={currentLocale} />
+  </body>
+</html>

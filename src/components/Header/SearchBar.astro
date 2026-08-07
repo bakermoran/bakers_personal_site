@@ -1,0 +1,15 @@
+---
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import CommandPaletteButton from '@/components/CommandPaletteButton.astro';
+
+const currentLocale = getLangFromUrl(Astro.originPathname);
+const t = useTranslations(currentLocale);
+---
+
+<CommandPaletteButton
+  class="hidden lg:block min-w-40 text-left rounded-md border border-muted active:scale-98 bg-popover px-3 py-2 text-sm text-muted-foreground"
+>
+  <span data-command-palette-placeholder>
+    ⌘ K {t("search")}...
+  </span>
+</CommandPaletteButton>

@@ -1,0 +1,15 @@
+---
+import SquareIcon from './SquareIcon.astro';
+
+interface Props {
+  size?: 'small' | 'medium' | 'large';
+}
+
+const { size = 'medium' } = Astro.props;
+---
+
+<div class="flex items-center gap-0.5">
+    <SquareIcon color="red" size={size} />
+    <SquareIcon color="blue" size={size} />
+    <SquareIcon color="yellow" size={size} />
+</div>

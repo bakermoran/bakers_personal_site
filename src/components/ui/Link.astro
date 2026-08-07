@@ -1,0 +1,37 @@
+---
+import { getLangFromUrl } from '@/i18n/utils';
+import type { HTMLAttributes } from 'astro/types';
+import { type Props as ButtonProps, styles as buttonStyles } from '@/components/ui/Button.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { twMerge } from 'tailwind-merge';
+
+type Props = (HTMLAttributes<'a'> & { as?: 'a', color?: 'primary' | 'secondary'})
+  | (HTMLAttributes<'a'> & { as: 'button' } & Pick<ButtonProps, 'variant' | 'size'>);
+
+const currentPath = Astro.originPathname
+const currentLocale = getLangFromUrl(Astro.originPathname);
+
+const { href } = Astro.props;
+
+let props
+if (Astro.props.as === 'button') {
+  const { variant = 'primary', size = 'md' } = Astro.props;
+  const stylizedStyle = `${buttonStyles.button} ${buttonStyles.variants[variant]} ${buttonStyles.sizes[size]}`
+
+  props = { type: 'button', class: stylizedStyle, ...Astro.props };
+} else {
+  const { color = 'primary' } = Astro.props;
+  const colorClass = color === 'primary' ? 'text-mcm-blue' : '';
+  const stylizedStyle = twMerge(`flex items-center gap-3 transition-opacity hover:opacity-70`, colorClass);
+
+  props = { class: stylizedStyle, ...Astro.props };
+}
+---
+
+<a
+    href={getRelativeLocaleUrl(currentLocale, href?.toString())}
+    aria-current={href && currentPath.startsWith(href.toString()) ? "page" : undefined}
+    {...props}
+>
+  <slot />
+</a>
