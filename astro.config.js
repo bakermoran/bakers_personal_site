@@ -28,11 +28,13 @@ export default defineConfig({
       provider: fontProviders.fontsource(),
       name: "Noto Serif",
       cssVariable: "--font-noto-serif",
+      fallbacks: ["Georgia", "Times New Roman", "serif"],
     },
     {
       provider: fontProviders.fontsource(),
       name: "Noto Sans Mono",
       cssVariable: "--font-noto-sans-mono",
+      fallbacks: ["Courier New", "monospace"],
     },
   ],
   i18n: {

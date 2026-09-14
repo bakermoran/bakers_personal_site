@@ -27,8 +27,8 @@ const postInfo = posts.map(({ id, data: { title } }) => ({ id, title })).reverse
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <Font cssVariable="--font-noto-serif" />
-    <Font cssVariable="--font-noto-sans-mono" />
+    <Font cssVariable="--font-noto-serif" preload={[{ style: "normal" }]} />
+    <Font cssVariable="--font-noto-sans-mono" preload />
     <link
       rel="alternate"
       type="application/rss+xml"

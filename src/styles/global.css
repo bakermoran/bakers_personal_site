@@ -80,8 +80,8 @@
 @theme inline {
   /* --font-sans: var(--font-sans), 'Space Grotesk', system-ui, sans-serif;
   --font-serif: var(--font-serif), 'DM Serif Display', Georgia, serif; */
-  --font-mono: 'Noto Sans Mono', 'Noto Mono', 'SF Mono', SF Mono, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-  --font-serif: var(--font-noto-serif), system-ui, sans-serif;
+  --font-mono: var(--font-noto-sans-mono), ui-monospace, Menlo, Consolas, monospace;
+  --font-serif: var(--font-noto-serif), Georgia, serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);

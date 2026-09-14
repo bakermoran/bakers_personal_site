@@ -12,3 +12,23 @@
   to = "/en"
   status = 302
   force = true
+
+[[headers]]
+  for = "/_astro/*.js"
+  [headers.values]
+    cache-control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/_astro/*.css"
+  [headers.values]
+    cache-control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/_astro/*.webp"
+  [headers.values]
+    cache-control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/_astro/fonts/*"
+  [headers.values]
+    cache-control = "public, max-age=604800"
