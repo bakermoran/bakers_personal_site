@@ -9,8 +9,8 @@
 # Astro config redirect causes visual reload in prod
 [[redirects]]
   from = "/"
-  to = "/en"
-  status = 302
+  to = "/en/"
+  status = 200
   force = true
 
 [[headers]]
