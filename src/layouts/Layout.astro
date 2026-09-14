@@ -29,6 +29,7 @@ const postInfo = posts.map(({ id, data: { title } }) => ({ id, title })).reverse
     <meta name="description" content={description} />
     <Font cssVariable="--font-noto-serif" preload={[{ style: "normal" }]} />
     <Font cssVariable="--font-noto-sans-mono" preload />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
     <link
       rel="alternate"
       type="application/rss+xml"
