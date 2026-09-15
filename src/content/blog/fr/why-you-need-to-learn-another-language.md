@@ -1,5 +1,6 @@
 ---
 title: "Pourquoi vous devez apprendre une autre langue"
+translationKey: "why-you-need-to-learn-another-language"
 date: "2021-10-20T01:30:29.685Z"
 template: "post"
 draft: false
@@ -11,10 +12,10 @@ tags:
   - "La cognition"
   - "Le biais"
 description: "Comment la langue que vous parlez influence-t-elle la façon dont vous percevez le monde, et comment l'apprentissage d'une nouvelle langue peut-il révéler des enseignements insoupçonnés ?"
-socialImage: "media/hello-stock.jpg"
+socialImage: "@/assets/images/hello-stock.jpeg"
 ---
 
-![Bubble text of "hello" in various languages](media/hello-stock.jpeg "Hello in various languages")
+![Bubble text of "hello" in various languages](../../../assets/images/hello-stock.jpeg "Hello in various languages")
 
 Learning a new language is something that I believe can offer you a unique and different perspective on the world and alter the way you think. It provides a framework to critically think about the way you comprehend and perceive the world around you. Learning a new language has altered my view of the world for the better, and it can do the same for you.
 

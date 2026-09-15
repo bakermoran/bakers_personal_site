@@ -1,0 +1,89 @@
+local_backend:
+  url: http://localhost:8082/api/v1
+backend:
+  name: git-gateway
+  branch: main
+
+i18n:
+  structure: multiple_folders
+  locales: [en, fr]
+  default_locale: en
+media_folder: "src/assets/images"
+public_folder: "@/assets/images"
+site_url: "https://bakermoran.io"
+collections:
+  - name: "blog"
+    label: "Blog"
+    label_singular: "Blog post"
+    folder: "src/content/blog"
+    create: true
+    i18n: true
+    media_folder: "/src/assets/images"
+    public_folder: "@/assets/images"
+
+    identifier_field: "translationKey"
+    path: "{{slug}}"
+    summary: "{{title}} — {{date}}"
+
+    fields:
+      - label: "Translation key"
+        name: "translationKey"
+        widget: "string"
+        hint: "Stable URL and translation identifier. Use lowercase words separated by hyphens."
+        pattern:
+          - "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          - "Use lowercase letters, numbers, and hyphens only."
+        i18n: duplicate
+
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        i18n: true
+
+      - label: "Description"
+        name: "description"
+        widget: "text"
+        i18n: true
+
+      - label: "Category"
+        name: "category"
+        widget: "string"
+        i18n: true
+
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        default: []
+        i18n: true
+
+      - label: "Draft"
+        name: "draft"
+        widget: "boolean"
+        default: true
+        i18n: duplicate
+
+      - label: "Publish date"
+        name: "date"
+        widget: "datetime"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        format: "YYYY-MM-DD"
+        i18n: duplicate
+
+      - label: "Social image"
+        name: "socialImage"
+        widget: "image"
+        required: false
+        i18n: duplicate
+
+      - label: "Template"
+        name: "template"
+        widget: "hidden"
+        default: "post"
+        i18n: duplicate
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        i18n: true

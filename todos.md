@@ -15,6 +15,10 @@
 - consolidate button styles (scale 95 etc)
 - why small icons in article page - they shrink after refresh
 - movies and photos sections
+- remove hero icons
+- localize article links
+- when using mobile, the background color doesn't change when changing between dark and light mode
+- change dark mode coloring
 
 The post list passed via props is also serialized into every HTML page; if you go the lazy-load route, fetch it as a single /posts.json instead.
 
