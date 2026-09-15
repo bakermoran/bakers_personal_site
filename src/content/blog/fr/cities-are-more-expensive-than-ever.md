@@ -1,5 +1,6 @@
 ---
 title: "Les villes sont plus chères que jamais"
+translationKey: "cities-are-more-expensive-than-ever"
 date: "2022-07-01T01:45:28.791Z"
 template: "post"
 draft: false
@@ -9,10 +10,10 @@ tags:
   - "Le développement"
   - "Le transport"
 description: "À l'ère du télétravail, les loyers en ville et les prix de l'immobilier dans les quartiers à densité moyenne sont plus élevés que jamais. Pourquoi les gens reviennent-ils s'installer en ville — et paient-ils des loyers élevés pour y vivre — alors même qu'ils n'en ont pas besoin ?"
-socialImage: "media/sf-from-hawk-hill.jpg"
+socialImage: "@/assets/images/sf-from-hawk-hill.jpg"
 ---
 
-![San Francisco from Hawk Hill in Marin County](media/sf-from-hawk-hill.jpg "San Francisco")
+![San Francisco from Hawk Hill in Marin County](../../../assets/images/sf-from-hawk-hill.jpg "San Francisco")
 
 In the midst of covid, many predicted the “death of in person work”. To a large extent, this has been true - many companies have chosen not to go back to the office and have instead started hiring workers from all over the country. Why then do we see rents in places like New York City and San Francisco skyrocketing to higher than pre-pandemic levels?
 

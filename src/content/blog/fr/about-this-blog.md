@@ -1,15 +1,16 @@
 ---
 title: "À propos de ce blog"
+translationKey: "about-this-blog"
 date: "2021-07-19T15:41:47.827Z"
 template: "post"
 draft: false
 category: "À propos"
 tags: ["À propos"]
 description: "Pourquoi est-ce que j'écris un blog ?"
-socialImage: "media/badlands.jpg"
+socialImage: "@/assets/images/badlands.jpg"
 ---
 
-![Badlands national park](media/badlands.jpg)
+![Badlands national park](../../../assets/images/badlands.jpg)
 
 I've long avoided creating a personal website, let alone a blog. I think I always viewed it as unnecessary for myself, and that I didn't have anything important to say. But I've since realized that I enjoy talking about things I find interesting, and it's ok if I write it down no one even reads it. The act of writing helps to evolve my ideas and helps me learn.
 

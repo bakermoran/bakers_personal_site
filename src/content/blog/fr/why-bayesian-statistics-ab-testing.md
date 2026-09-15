@@ -1,19 +1,19 @@
 ---
-title: Why use Bayesian Statistics for AB Testing
+title: Pourquoi utiliser les statistiques bayésiennes pour les tests A/B ?
+translationKey: "why-bayesian-statistics-ab-testing"
 date: "2021-07-21T19:48:04.537Z"
 template: "post"
 draft: false
-id: "why-bayesian-statistics-ab-testing"
-category: "Statistics"
+category: "Les statistiques"
 tags:
-  - "Statistics"
-  - "AB Testing"
-  - "Bayes"
-description: "Why should we use Bayesian statistics when AB Testing, and how do we do it?"
-socialImage: "media/bayes-1.jpg"
+  - "Les statistiques"
+  - "Les tests A/B"
+  - "L'analyse bayésienne"
+description: "Pourquoi devrions-nous utiliser les statistiques bayésiennes lors des tests A/B, et comment procéder ?"
+socialImage: "@/assets/images/bayes-1.jpg"
 ---
 
-![Charts showing bayesian statistics](media/bayes-1.jpg)
+![Charts showing bayesian statistics](../../../assets/images/bayes-1.jpg)
 
 There are plenty of articles out there motivating why we should use Bayesian statistics in product analytics. I'm not going to try to reinvent the wheel here, so I will provide only a brief explaination and link to some articles that I found helpful in my learning. I will also explain why I created this package.
 
