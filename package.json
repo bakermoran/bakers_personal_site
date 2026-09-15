@@ -10,7 +10,6 @@
   "license": "MIT",
   "author": "Baker Moran <baker.moran@gmail.com>",
   "repository": "https://github.com/bakermoran/bakers_personal_site",
-  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "dev:lan": "astro dev --host",
