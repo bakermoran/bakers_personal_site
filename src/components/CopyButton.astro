@@ -26,7 +26,7 @@ const copiedDescription = t("copied.description");
   </span>
 </button>
 
-<script define:vars={{ target, copiedTitle, copiedDescription }}>
+<script is:inline define:vars={{ target, copiedTitle, copiedDescription }}>
   const button = document.getElementById("copy-link");
 
   if (button) {
