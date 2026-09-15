@@ -1,0 +1,78 @@
+name: Run Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    outputs:
+      coverage-artifact-id: ${{ steps.coverage.outputs.artifact-id }}
+
+    steps:
+      - uses: actions/checkout@v5
+      - uses: oven-sh/setup-bun@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+      - run: bun install --frozen-lockfile
+      - run: bun run test --coverage
+
+      - name: Upload Coverage
+        id: coverage
+        if: ${{ !cancelled() && hashFiles('coverage/coverage-summary.json') != '' }}
+        uses: actions/upload-artifact@v6
+        with:
+          name: ${{ github.event_name == 'pull_request' && 'coverage-pull-request' || 'coverage-main' }}
+          path: coverage/*.json
+          if-no-files-found: error
+
+  report-coverage:
+    needs: test
+    if: ${{ !cancelled() && github.event_name == 'pull_request' && needs.test.outputs.coverage-artifact-id != '' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Download PR Coverage
+        uses: actions/download-artifact@v7
+        with:
+          name: coverage-pull-request
+          path: pr-coverage
+
+      - name: Download Main Coverage
+        id: baseline
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          BASE_BRANCH: ${{ github.event.pull_request.base.ref }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          run_id=$(gh run list --workflow test.yml --branch "$BASE_BRANCH" --commit "$BASE_SHA" \
+            --event push --status success --limit 1 --json databaseId --jq '.[0].databaseId // empty')
+          if [[ -n "$run_id" ]] && gh run download "$run_id" --name coverage-main --dir main-coverage; then
+            echo "path=main-coverage/coverage-summary.json" >> "$GITHUB_OUTPUT"
+          else
+            echo "::notice::Baseline unavailable; reporting coverage without a comparison."
+          fi
+
+      - name: Report Coverage
+        uses: davelosert/vitest-coverage-report-action@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          json-summary-path: pr-coverage/coverage-summary.json
+          json-summary-compare-path: ${{ steps.baseline.outputs.path }}
+          json-final-path: pr-coverage/coverage-final.json
+          comment-on: ${{ github.event.pull_request.head.repo.full_name == github.repository && github.actor != 'dependabot[bot]' && 'pr' || 'none' }}
