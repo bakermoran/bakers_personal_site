@@ -1,5 +1,6 @@
 import { defineConfig, fontProviders } from "astro/config";
 import react from "@astrojs/react";
+import { unified } from "@astrojs/markdown-remark";
 import tailwindcss from "@tailwindcss/vite";
 import { remarkReadingTime } from "./remark-reading-time.mjs";
 
@@ -21,7 +22,7 @@ export default defineConfig({
     },
   },
   markdown: {
-    remarkPlugins: [remarkReadingTime],
+    processor: unified({ remarkPlugins: [remarkReadingTime] }),
   },
   fonts: [
     {

@@ -1,4 +1,4 @@
-import React, { type ReactNode, type PropsWithChildren } from "react";
+import type { ReactNode, PropsWithChildren } from "react";
 import * as Radix from "@radix-ui/react-tooltip";
 
 interface Props extends PropsWithChildren<Radix.TooltipProps> {

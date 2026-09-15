@@ -10,6 +10,7 @@
   "license": "MIT",
   "author": "Baker Moran <baker.moran@gmail.com>",
   "repository": "https://github.com/bakermoran/bakers_personal_site",
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "dev:lan": "astro dev --host",
@@ -26,6 +27,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@astrojs/markdown-remark": "7.2.1",
     "@astrojs/mdx": "7.0.2",
     "@astrojs/react": "6.0.1",
     "@astrojs/rss": "4.0.19",

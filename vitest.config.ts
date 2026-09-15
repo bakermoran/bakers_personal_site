@@ -1,7 +1,9 @@
-import type {} from "vitest/config";
+import type { TestUserConfig } from "vitest/config";
 import { getViteConfig } from "astro/config";
 
-export default getViteConfig({
+type VitestConfig = Parameters<typeof getViteConfig>[0] & { test: TestUserConfig };
+
+const config: VitestConfig = {
   test: {
     globals: true,
     environment: "jsdom",
@@ -19,4 +21,6 @@ export default getViteConfig({
       },
     },
   },
-});
+};
+
+export default getViteConfig(config);
