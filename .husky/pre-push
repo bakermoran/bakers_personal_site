@@ -1,4 +1,7 @@
-echo "Running pre-commit checks..."
+echo "Running pre-push checks..."
+
+echo "Typechecking..."
+bun run typecheck || exit 1
 
 echo "Formatting..."
 bun run format:check || exit 1
