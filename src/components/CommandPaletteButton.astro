@@ -21,25 +21,8 @@ const { class: className, ariaLabel = t("openCommandPalette") } = Astro.props;
 </button>
 
 <script>
-  import { openCommandPalette } from "@/scripts/openCommandPalette";
+  import { initCommandPaletteButtons } from "@/scripts/initCommandPaletteButtons";
 
-  function initButtons() {
-    const buttons = document.querySelectorAll<HTMLElement>('[data-command-palette-trigger]');
-    buttons.forEach((btn) => {
-      if (btn.dataset.searchBound === "true") return;
-      btn.dataset.searchBound = "true";
-
-      const placeholderEl = btn.querySelector<HTMLElement>("[data-command-palette-placeholder]");
-      if (placeholderEl && !navigator.platform.toLowerCase().includes("mac")) {
-        placeholderEl.textContent = placeholderEl.textContent?.replace("⌘ K", "Ctrl + K") ?? "";
-      }
-
-      btn.addEventListener("click", () => {
-        openCommandPalette();
-      });
-    });
-  }
-
-  initButtons();
-  document.addEventListener("astro:page-load", initButtons);
+  initCommandPaletteButtons();
+  document.addEventListener("astro:page-load", initCommandPaletteButtons);
 </script>
