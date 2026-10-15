@@ -7,7 +7,7 @@ const config: VitestConfig = {
   test: {
     globals: true,
     environment: "jsdom",
-    setupFiles: ["@testing-library/jest-dom/vitest"],
+    setupFiles: ["./setup_tests.ts"],
     coverage: {
       provider: "v8",
       reporter: ["text", "json-summary", "json", "lcov"],
